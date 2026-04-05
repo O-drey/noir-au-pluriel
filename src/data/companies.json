@@ -48,8 +48,8 @@
       "email": "",
       "city": "Marseille",
       "country": "France",
-      "categories": ["food", "bar_restaurant_salon"],
-      "mentions": ["handcraft", "famlly"]
+      "categories": ["food", "bar_restaurant"],
+      "mentions": ["handcraft", "family"]
     },
     {
       "id": "3715337e-d8dd-4f6e-96c1-a8c0fb5cff43",
@@ -78,7 +78,7 @@
       "email": "boutique@atelieror-exemple.test",
       "city": "Genève",
       "country": "Suisse",
-      "categories": ["jewels", "design", "luxe"],
+      "categories": ["jewels", "design"],
       "mentions": ["handcraft", "sustainale", "luxe"]
     },
     {
@@ -96,7 +96,7 @@
       "email": "hello@zen-exemple.test",
       "city": "Lille",
       "country": "France",
-      "categories": ["wellweing", "workshop", "books"],
+      "categories": ["wellbeing", "workshop"],
       "mentions": ["sustainale", "queer"]
     },
     {
@@ -141,8 +141,8 @@
       "email": "marc@petitatelier-exemple.test",
       "city": "Toulouse",
       "country": "France",
-      "categories": ["decoration", "design", "handcraft"],
-      "mentions": ["handcraft", "famlly"]
+      "categories": ["decoration", "design"],
+      "mentions": ["handcraft", "familly"]
     },
     {
       "id": "22c9f424-4af3-4da7-a51b-0e4f96665352",
@@ -186,8 +186,8 @@
       "email": "bouquin@lectures-exemple.test",
       "city": "Lyon",
       "country": "France",
-      "categories": ["books", "bar_restaurant_salon"],
-      "mentions": ["handcraft", "famlly"]
+      "categories": ["books", "bar_restaurant"],
+      "mentions": ["handcraft", "family"]
     },
     {
       "id": "ad67617c-8489-4b94-96b5-b77752dbe3fd",
@@ -220,7 +220,7 @@
       "city": "Dakar",
       "country": "Sénégal",
       "categories": ["jewels", "art"],
-      "mentions": ["handcraft", "famlly", "luxe"]
+      "mentions": ["handcraft", "family", "luxe"]
     },
     {
       "id": "42d45c12-e045-4a48-8a22-fd8e2dd3558f",

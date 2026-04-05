@@ -16,11 +16,14 @@
           class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
         >
           <li v-for="item in menu" :key="item.value">
-            <RouterLink :to="`/${item.value}`">{{ item.name }}</RouterLink>
+            <UIButton
+              :label="item.name"
+              :onClick="filter(item.value as CategoriesKeys)"
+            />
           </li>
         </ul>
       </nav>
-      <CompaniesList />
+      <CompaniesList :companies="companies" />
     </div>
   </div>
 </template>
@@ -28,6 +31,19 @@
 <script setup lang="ts">
 import { menu } from "@/composables/menu"
 import CompaniesList from "../components/CompaniesList.vue"
-</script>
+import { storeToRefs } from "pinia"
+import { useCompanyStore } from "@/stores/useCompanyStore"
+import type { CategoriesKeys } from "@/composables/categories"
+import UIButton from "@/components/UI/UIButton.vue"
+import { computed } from "vue"
 
-<style scoped></style>
+const store = useCompanyStore()
+const { companies } = storeToRefs(store)
+
+const filter = (value: CategoriesKeys) => {
+  computed(() =>
+    companies.value.filter((company) => company.categories.includes(value)),
+  )
+  return companies.value
+}
+</script>

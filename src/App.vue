@@ -12,7 +12,7 @@ store.fetchCompanies()
   <Suspense>
     <div class="wrapper flex flex-col min-h-screen">
       <Header />
-      <main class="flex-1 p-16">
+      <main class="flex-1 p-4 md:p-16 py-120">
         <RouterView />
       </main>
       <Footer />

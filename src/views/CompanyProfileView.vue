@@ -22,9 +22,13 @@
     <div>
       <span>Basé à : {{ company.city }}, {{ company.country }}</span>
     </div>
-
-    <UIChip v-for="category in company.categories" :text="category" />
-    <UIChip v-for="mention in company.mentions" :text="mention" />
+    <div class="flex gap-4 items-center font-medium">
+      <UIChip
+        v-for="category in company.categories"
+        :text="CATEGORIES[category]"
+      />
+      <UIChip v-for="mention in company.mentions" :text="MENTIONS[mention]" />
+    </div>
   </div>
   <div v-else>
     <p>
@@ -38,6 +42,8 @@
 import { ref, onBeforeMount } from "vue"
 import { useRoute } from "vue-router"
 import { useFetchCompanies } from "@/api/fetchCompanies"
+import { CATEGORIES } from "@/composables/categories"
+import { MENTIONS } from "@/composables/mentions"
 import UIChip from "@/components/UI/UIChip.vue"
 import type { Company } from "@/types/companies"
 

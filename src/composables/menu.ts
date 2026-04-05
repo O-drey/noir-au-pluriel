@@ -29,7 +29,7 @@ export const menu = [
     name: "Nourriture",
     submenu: [
       { value: "traiteur", name: "Traiteur", href: "/traiteur" },
-      { value: "metal", name: "Restaurants/Bars", href: "/metal" },
+      { value: "metal", name: "Bars/Restaurants", href: "/metal" },
     ],
   },
   {

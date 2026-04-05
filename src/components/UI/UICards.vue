@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="href">
     <div
-      class="shadow shadow-gray-300 rounded-lg drop-shadow-sm inset-shadow-2xs rounded-t-full space-y-6"
+      class="shadow shadow-gray-300 rounded-lg drop-shadow-sm rounded-t-full space-y-6"
     >
       <div class="aspect-square h-auto w-full overflow-hidden">
         <img
@@ -11,9 +11,9 @@
           class="h-full w-full object-center object-contain"
         />
       </div>
-      <div>
+      <div class="px-4 pb-4">
         <h3>{{ name }}</h3>
-        <div class="flex gap-4">
+        <div class="flex gap-2">
           <UIChip
             v-for="category in categories"
             :key="category"
