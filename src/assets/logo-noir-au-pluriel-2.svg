@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 388 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-242,-360.65)">
+        <g>
+            <g transform="matrix(1,0,0,1,-30,14)">
+                <g transform="matrix(50,0,0,50,660.2,385.15)">
+                </g>
+                <text x="270px" y="385.15px" style="font-family:'RustyHooks-Regular', 'Rusty Hooks';font-size:50px;">Noir au pluriel</text>
+            </g>
+            <path d="M343.562,377.318C341.378,385.004 334.109,384.563 327.216,384.697" style="fill:none;stroke:black;stroke-width:5.17px;"/>
+            <g transform="matrix(1,0,0,1.184085,0,-70.816976)">
+                <path d="M327.216,384.697C330.368,386.086 333.257,386.824 336.676,390.824C337.725,392.051 340.486,396.422 345.9,395.411" style="fill:none;stroke:black;stroke-width:4.71px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
