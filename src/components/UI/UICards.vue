@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="href">
     <div
-      class="shadow shadow-gray-300 rounded-lg drop-shadow-sm rounded-t-full space-y-6"
+      class="shadow shadow-gray-300 rounded-lg drop-shadow-sm rounded-t-full space-y-6 max-w-[288px]"
     >
       <div class="aspect-square h-auto w-full overflow-hidden">
         <img

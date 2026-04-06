@@ -29,6 +29,9 @@
       />
       <UIChip v-for="mention in company.mentions" :text="MENTIONS[mention]" />
     </div>
+
+    <!-- <UIButton label="Supprimer" :onClick="onDelete" /> -->
+    <UIButton label="Modifier" :href="`/entreprise/${companyId}/edit`" />
   </div>
   <div v-else>
     <p>
@@ -45,13 +48,18 @@ import { useFetchCompanies } from "@/api/fetchCompanies"
 import { CATEGORIES } from "@/composables/categories"
 import { MENTIONS } from "@/composables/mentions"
 import UIChip from "@/components/UI/UIChip.vue"
+import UIButton from "@/components/UI/UIButton.vue"
 import type { Company } from "@/types/companies"
+import { useCompanyStore } from "@/stores/useCompanyStore"
 
 const { retrieve } = useFetchCompanies()
 const { id } = useRoute().params
-const companyId = Array.isArray(id) ? id[0] : id
+const companyId = Array.isArray(id)
+  ? (id[0] as Company["id"])
+  : (id as Company["id"])
 const company = ref<Company>()
 
+const store = useCompanyStore()
 onBeforeMount(async () => {
   if (!companyId) return
   company.value = await retrieve(companyId)
@@ -72,4 +80,6 @@ const socialName = (url: string) => {
             ? "Facebook"
             : "Pinterest"
 }
+
+const onDelete = () => store.deleteCompany(companyId)
 </script>

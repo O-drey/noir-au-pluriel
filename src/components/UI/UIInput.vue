@@ -6,12 +6,13 @@
       :type="type ?? 'text'"
       :id="labelFor"
       :name="labelFor"
-      :autocomplete="autocomplete"
+      :autocomplete="autocomplete ? 'on' : 'off'"
       :autocapitalize="autocapitalize"
       :alt="alt"
       :required="required"
-      :value="modelValue"
+      :value="type === 'file' ? undefined : modelValue"
       @input="
+        type !== 'file' &&
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "
       class="py-3.5 px-4 border border-gray-300 rounded-sm focus-visible:border-2 focus-visible:ring-offset-2 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-transparent"
@@ -25,7 +26,7 @@ const props = defineProps<{
   alt?: string
   id?: string
   autocapitalize?: "sentences" | "words" | "characters"
-  autocomplete: "on" | "off"
+  autocomplete?: "on" | "off"
   label: string
   labelFor: string
   hint?: string

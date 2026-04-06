@@ -4,7 +4,7 @@ import { useFetchCompanies } from "@/api/fetchCompanies"
 import type { Company } from "@/types/companies"
 
 export const useCompanyStore = defineStore("company-store", () => {
-  const { list, create } = useFetchCompanies()
+  const { list, create, update, del } = useFetchCompanies()
   const companies = ref<Company[]>([])
 
   const fetchCompanies = async () => (companies.value = (await list()) ?? [])
@@ -15,5 +15,29 @@ export const useCompanyStore = defineStore("company-store", () => {
     return newCompany
   }
 
-  return { companies, fetchCompanies, createCompany }
+  const updateCompany = async (
+    id: Company["id"],
+    body: Omit<Company, "id">,
+  ) => {
+    const data = await update(id, body)
+    if (!data) return
+    const index = companies.value.findIndex((c) => c.id === id)
+    if (index !== -1) companies.value[index] = data
+    return data
+  }
+
+  const deleteCompany = async (id: Company["id"]) => {
+    const data = await del(id)
+    if (!data) return
+    companies.value = data
+    return data
+  }
+
+  return {
+    companies,
+    fetchCompanies,
+    createCompany,
+    updateCompany,
+    deleteCompany,
+  }
 })
