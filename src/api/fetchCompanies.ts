@@ -77,16 +77,22 @@ export const useFetchCompanies = () => {
     }
   }
 
-  //ADAPTER
-  const update = async (id: string, body: FormData) => {
+  const update = async (id: Company["id"], body: Omit<Company, "id">) => {
     try {
-      const data = await fetch(`${baseURL}/${id}`, { body, method: "PATCH" })
-      if (!data.ok) {
-        throw new Error(`Statut de réponse : ${data.status}`)
-      }
-      const result = await data.json()
-      console.dir("update result : ", result)
-      return result as Company
+      // const data = await fetch(`${baseURL}/${id}`, { body, method: "PATCH" })
+      // if (!data.ok) {
+      //   throw new Error(`Statut de réponse : ${data.status}`)
+      // }
+      // const result = await data.json()
+      // console.dir("update result : ", result)
+      // return result as Company
+
+      const data = getStoredCompanies()
+      const index = data.findIndex((el: Company) => el.id === id)
+      if (index === -1) return
+      data[index] = { ...data[index], ...body }
+      saveCompanies(data)
+      return data[index]
     } catch (err) {
       const error = new Error(
         `Propblème pour mettre à jour l'entreprise ${id}`,
@@ -108,11 +114,10 @@ export const useFetchCompanies = () => {
       // console.dir("del result : ", result)
       // return result
 
-      const data = getStoredCompanies() as Company[]
-      const index = data.findIndex((el) => el.id === id)
-      data?.splice(index, 1)
+      const data = getStoredCompanies().filter((el: Company) => el.id !== id)
       console.dir("create company data : ", data)
-      return data as Company[]
+      saveCompanies(data)
+      return data
     } catch (err) {
       const error = new Error(`Propblème pour supprimer l'entreprise ${id}`, {
         cause: err,

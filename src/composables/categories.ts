@@ -13,30 +13,30 @@ export type CategoriesKeys =
   | "design"
   | "legal"
   | "property"
-  | "bar_restaurant_salon"
+  | "bar_restaurant"
   | "perfume"
   | "books"
   | "bags"
   | "tattoos"
 
 export const CATEGORIES: Record<CategoriesKeys, string> = {
-  jewels: "Bijoux",
   fashion: "Mode",
+  jewels: "Bijoux",
+  bags: "Maroquinnerie",
   hair: "Cheveux",
-  food: "Nourriture",
-  cosmetics: "Cosmétique",
-  beauty: "Beauté",
-  decoration: "Déco",
-  wellbeing: "Bien-être",
+  cosmetics: "Cosmétiques",
+  perfume: "Parfum",
   makeup: "Maquillage",
+  beauty: "Beauté",
+  wellbeing: "Bien-être",
+  food: "Nourriture",
+  decoration: "Déco",
   art: "Art",
-  workshop: "Ateliers",
   design: "Design",
+  workshop: "Ateliers",
   legal: "Legal",
   property: "Immobilier",
-  bar_restaurant_salon: "Bars/Restaurants/Salon de thé ou coffee shop",
-  perfume: "Parfum",
+  bar_restaurant: "Bar/Restaurant",
   books: "Livres/ Médias",
-  bags: "Maroquinnerie",
   tattoos: "Tatouage",
 }

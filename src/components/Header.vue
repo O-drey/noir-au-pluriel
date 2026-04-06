@@ -20,6 +20,13 @@
         label="Compléter l'annuaire"
         size="m"
       />
+      <UIButton
+        v-if="adminIsConnected"
+        label="Se déconnecter"
+        size="s"
+        color="grey"
+        :onClick="logout"
+      />
     </div>
   </header>
 </template>
@@ -27,4 +34,10 @@
 <script setup lang="ts">
 import logo from "@/assets/logo-noir-au-pluriel-3.svg"
 import UIButton from "./UI/UIButton.vue"
+import { storeToRefs } from "pinia"
+import { useAdminStore } from "@/stores/useAdminStore"
+
+const adminStore = useAdminStore()
+const { adminIsConnected } = storeToRefs(adminStore)
+const logout = () => adminStore.logout()
 </script>

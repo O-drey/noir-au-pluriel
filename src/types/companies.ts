@@ -15,4 +15,5 @@ export interface Company {
   country: string
   categories: CategoriesKeys[]
   mentions: MentionsKeys[]
+  status: "active" | "to-check" | "disabled"
 }

@@ -1,5 +1,7 @@
 <template>
-  <span class="rounded-sm bg-gray-200 p-1 text-sm h-fit inline-flex">
+  <span
+    class="rounded-full border border-gray-200 px-2 py-0.5 text-sm h-fit inline-flex"
+  >
     {{ text }}
   </span>
 </template>
