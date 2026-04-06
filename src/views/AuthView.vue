@@ -48,7 +48,10 @@ const passowrd = ref<string>("")
 const bearerToken = ref<string>("abc")
 
 const login = () => {
-  if (!identifiant.value.match("sara") || !passowrd.value.match("croche"))
+  if (
+    !identifiant.value.match(import.meta.env.ADMIN_IDENTIFIANT) ||
+    !passowrd.value.match(import.meta.env.ADMIN_PASSWORD)
+  )
     return
   adminStore.login(bearerToken.value)
 }
