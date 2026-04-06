@@ -3,7 +3,17 @@
     <img :src="company.logo" :alt="`logo_${company.name}`" />
     <h1>{{ company.name }}</h1>
     <span>par </span>
-    <span v-for="founder in company.founders">{{ founder }}</span>
+    <span v-for="founder in company.founders">{{ founder }} </span>
+    <select
+      v-model="companyStatus"
+      name="company-status"
+      id="company-status"
+      @change="onStatusChange"
+    >
+      <option v-for="stat in status" :key="stat.value" :value="stat.value">
+        {{ stat.name }}
+      </option>
+    </select>
     <div>
       <p>{{ company.description }}</p>
     </div>
@@ -29,9 +39,13 @@
       />
       <UIChip v-for="mention in company.mentions" :text="MENTIONS[mention]" />
     </div>
-
-    <!-- <UIButton label="Supprimer" :onClick="onDelete" /> -->
-    <UIButton label="Modifier" :href="`/entreprise/${companyId}/edit`" />
+    <div v-if="adminIsConnected">
+      <UIButton label="Supprimer" :onClick="onDelete" />
+      <UIButton
+        label="Modifier"
+        :href="`/admin/entreprise/${companyId}/edit`"
+      />
+    </div>
   </div>
   <div v-else>
     <p>
@@ -51,6 +65,8 @@ import UIChip from "@/components/UI/UIChip.vue"
 import UIButton from "@/components/UI/UIButton.vue"
 import type { Company } from "@/types/companies"
 import { useCompanyStore } from "@/stores/useCompanyStore"
+import { useAdminStore } from "@/stores/useAdminStore"
+import { storeToRefs } from "pinia"
 
 const { retrieve } = useFetchCompanies()
 const { id } = useRoute().params
@@ -59,13 +75,17 @@ const companyId = Array.isArray(id)
   : (id as Company["id"])
 const company = ref<Company>()
 
-const store = useCompanyStore()
+const companyStore = useCompanyStore()
+
 onBeforeMount(async () => {
   if (!companyId) return
   company.value = await retrieve(companyId)
+  companyStatus.value = company.value?.status ?? "to-check"
+  console.dir(company.value)
 })
 
-console.dir(company.value)
+const adminStore = useAdminStore()
+const { adminIsConnected } = storeToRefs(adminStore)
 
 const socialName = (url: string) => {
   return url.includes("instagram")
@@ -81,5 +101,21 @@ const socialName = (url: string) => {
             : "Pinterest"
 }
 
-const onDelete = () => store.deleteCompany(companyId)
+const onDelete = () => companyStore.deleteCompany(companyId)
+
+const companyStatus = ref<Company["status"]>(
+  company.value?.status ?? "to-check",
+)
+const status = [
+  { value: "to-check", name: "À vérifier" },
+  { value: "active", name: "Validé" },
+  { value: "disabled", name: "Désactivé" },
+]
+
+const onStatusChange = async () => {
+  await companyStore.updateCompany(companyId, {
+    ...company.value!,
+    status: companyStatus.value,
+  })
+}
 </script>

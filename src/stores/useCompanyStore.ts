@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import { useFetchCompanies } from "@/api/fetchCompanies"
 import type { Company } from "@/types/companies"
 
@@ -8,6 +8,16 @@ export const useCompanyStore = defineStore("company-store", () => {
   const companies = ref<Company[]>([])
 
   const fetchCompanies = async () => (companies.value = (await list()) ?? [])
+
+  const activeCompanies = computed(() =>
+    companies.value.filter((c) => c.status === "active"),
+  )
+
+  const inactiveCompanies = computed(() =>
+    companies.value.filter(
+      (c) => c.status === "to-check" || c.status === "disabled",
+    ),
+  )
 
   const createCompany = async (body: Omit<Company, "id">) => {
     const newCompany = await create(body)
@@ -35,6 +45,8 @@ export const useCompanyStore = defineStore("company-store", () => {
 
   return {
     companies,
+    activeCompanies,
+    inactiveCompanies,
     fetchCompanies,
     createCompany,
     updateCompany,

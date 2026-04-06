@@ -184,6 +184,7 @@ const editedCompany = ref<Omit<Company, "id">>({
   country: "",
   categories: [],
   mentions: [],
+  status: "to-check",
 })
 
 const foundersInput = ref("")

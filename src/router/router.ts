@@ -25,7 +25,12 @@ const router = createRouter({
       component: () => import("@/views/CompanyProfileView.vue"),
     },
     {
-      path: "/entreprise/:id/edit",
+      path: "/admin",
+      name: "admin-space",
+      component: () => import("@/views/AdminView.vue"),
+    },
+    {
+      path: "/admin/entreprise/:id/edit",
       name: "edit-company",
       component: () => import("@/views/UpdateCompanyView.vue"),
     },

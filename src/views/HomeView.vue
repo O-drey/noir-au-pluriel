@@ -8,6 +8,10 @@
         afro-descendantes ? Consultez l'annuaire, vous trouverez probablement ce
         quelque chose qui fera battre votre cœur !
       </p>
+      <span
+        >Nous actuellement à {{ activeCompanies.length }} entreprises et
+        créateurices</span
+      >
     </div>
 
     <div class="space-y-8">
@@ -26,6 +30,16 @@
         </ul>
       </nav>
       <CompaniesList :companies="filteredCompanies" />
+      <div v-if="filteredCompanies.length === 0" class="text-center space-y-8">
+        <p>
+          Nous ne connaissons pas encore d'entreprise dans ce domaine, mais si
+          vous en connaissez donnez-leur de la force !
+        </p>
+        <UIButton
+          label="Complétez l'annuaire"
+          href="/ajouter-entreprise-createur"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -40,19 +54,17 @@ import UIButton from "@/components/UI/UIButton.vue"
 import type { CategoriesKeys } from "@/composables/categories"
 
 const store = useCompanyStore()
-const { companies } = storeToRefs(store)
+const { activeCompanies } = storeToRefs(store)
 
 const activeFilter = ref<CategoriesKeys | null>(null)
 
 const filteredCompanies = computed(() => {
-  if (!activeFilter.value) return companies.value
-  return companies.value.filter((company) =>
+  if (!activeFilter.value) return activeCompanies.value
+  return activeCompanies.value.filter((company) =>
     company.categories.includes(activeFilter.value!),
   )
 })
 const filter = (value: CategoriesKeys) => {
   activeFilter.value = activeFilter.value === value ? null : value
-
-  // return filteredCompanies.value
 }
 </script>
