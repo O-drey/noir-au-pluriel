@@ -10,9 +10,9 @@ store.fetchCompanies()
 
 <template>
   <Suspense>
-    <div class="wrapper flex flex-col min-h-screen">
+    <div class="wrapper flex flex-col min-h-screen bg-sable-100">
       <Header />
-      <main class="flex-1 py-24 px-4 lg:p-16 lg:py-32">
+      <main class="flex-1">
         <RouterView />
       </main>
       <Footer />

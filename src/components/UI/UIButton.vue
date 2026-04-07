@@ -22,6 +22,7 @@
     ]"
     >{{ label }}</RouterLink
   >
+  <!-- ajouter classe active pour les liens -->
 </template>
 
 <script setup lang="ts">
@@ -31,15 +32,15 @@ const props = defineProps<{
   href?: string
   label: string
   size?: "s" | "m" | "l" | "block"
-  color?: "primary" | "grey" | "sable"
+  color?: "primary" | "grey" | "ghost"
   onClick?: () => void
 }>()
 
 const btnColor =
   props.color === "grey"
     ? "bg-gray-300 text-black hover:bg-gray-600 hover:text-white"
-    : props.color === "sable"
-      ? "bg-uspn-sable"
+    : props.color === "ghost"
+      ? "bg-none hover:bg-black/10"
       : "bg-black text-white hover:bg-gray-100 hover:text-black"
 
 const btnSize =
@@ -47,7 +48,7 @@ const btnSize =
     ? "py-1.5 px-1.5"
     : props.size === "m"
       ? "py-2 px-2"
-      : props.size === "block"
-        ? "py-4 px-2"
+      : props.size === "l"
+        ? "py-4 px-3"
         : "py-6 px-4 width-full"
 </script>

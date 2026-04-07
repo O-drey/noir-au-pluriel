@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed z-10 w-full flex items-center justify-between gap-4 text-base font-medium py-4 px-8 bg-black"
+    class="fixed z-10 w-full flex items-center justify-between gap-4 text-base font-medium py-4 px-8 bg-white/50 backdrop-blur-sm border-b border-b-white"
   >
     <RouterLink to="/">
       <div class="aspect-w-10 aspect-h-1 w-40">
@@ -8,24 +8,24 @@
           :src="logo"
           alt="logo_Noir_au_pluriel"
           aria-label="Accueil"
-          class="h-auto w-auto invert"
+          class="h-auto w-auto"
         />
         <span class="sr-only">Accueil</span>
       </div>
     </RouterLink>
     <div class="flex items-center justify-between gap-4">
-      <UIButton href="/a-propos" label="À propos" size="m" />
-      <UIButton
-        href="/ajouter-entreprise-createur"
-        label="Compléter l'annuaire"
-        size="m"
-      />
       <UIButton
         v-if="adminIsConnected"
         label="Se déconnecter"
         size="s"
-        color="grey"
+        color="ghost"
         :onClick="logout"
+      />
+      <UIButton href="/a-propos" label="À propos" size="m" color="ghost" />
+      <UIButton
+        href="/ajouter-entreprise-createur"
+        label="Compléter l'annuaire"
+        size="m"
       />
     </div>
   </header>

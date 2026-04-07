@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div class="mt-40 my-26 px-4 lg:px-0">
     <UIForm
       name="edit-company"
       autoComplete="on"
       novalidate
       :onSubmit="update"
-      class="p-12 border rounded-2xl"
+      class="px-6 py-8 lg:p-12 rounded-4xl bg-white lg:max-w-2xl mx-auto"
     >
       <template #content>
-        <h1 class="font-bold text-4xl mb-8">
-          Mettre à jour les infos d'une entreprise ou d'une créateurice
+        <h1 class="text-center font-bold text-4xl mb-8">
+          Mettre à jour les infos de
+          {{
+            originalCompany?.name
+              ? originalCompany.name
+              : "d'une entreprise ou d'une créateurice"
+          }}
         </h1>
 
         <div class="flex flex-col gap-8 mt-8">
@@ -28,27 +33,45 @@
             labelFor="fondateurs-marque"
             required
           />
-          <UIInput
+          <div>
+            <h3 class="font-medium text-xl mb-2">Logo de la marque</h3>
+            <div class="flex flex-col lg:flex-row gap-x-6">
+              <UIInput
+                label="Déposez un fichier"
+                hintBelow="Formats acceptés : .png, .svg, .jpeg"
+                autocomplete="on"
+                labelFor="logo-marque"
+                labelSize="s"
+                type="file"
+                acceptedFormats="image/png, image/svg, image/jpeg"
+                maxSize="500"
+                class="lg:max-w-1/2"
+                @change="handleFileChange"
+              />
+              <UIInput
+                v-model.trim="logoInput"
+                label="Lien du logo"
+                labelSize="s"
+                autocomplete="on"
+                labelFor="logo-marque"
+                class="w-full"
+                :placeholder="originalCompany?.logo"
+              />
+            </div>
+          </div>
+          <!-- <UIInput
             type="file"
-            label="Fichier du logo"
+            label="Déposez un fichier"
             labelFor="logo-marque"
             @change="handleFileChange"
-          />
-          <UIInput
+          /> -->
+          <!-- <UIInput
             v-model.trim="logoInput"
             label="Lien du logo"
             autocomplete="on"
             labelFor="logo-marque"
             :placeholder="originalCompany?.logo"
-          />
-          <UIInput
-            v-model.trim="editedCompany.description"
-            label="Que fait la marque ?"
-            autocomplete="on"
-            labelFor="description-marque"
-            max-length="500"
-            required
-          />
+          /> -->
           <UIInput
             v-model.trim="editedCompany.website"
             label="Site web"
@@ -71,49 +94,100 @@
             autocomplete="on"
             labelFor="réseaux-sociaux-marque"
           />
-          <UIInput
-            v-model.trim="editedCompany.type"
-            label="Type"
-            autocomplete="on"
-            labelFor="type-entreprise-marque"
-            required
-          />
-          <fieldset class="flex flex-col gap-2">
-            <h3>Où est basée la marque ?</h3>
-            <UIInput
-              v-model.trim="editedCompany.city"
-              label="Ville"
-              autocomplete="on"
-              labelFor="ville-marque"
-              required
-            />
-            <UIInput
-              v-model.trim="editedCompany.country"
-              label="Pays"
-              autocomplete="on"
-              labelFor="pays-marque"
-              required
-            />
-          </fieldset>
-          <fieldset class="flex flex-col gap-2">
-            <span>Dans quelles catégories se trouve la marque ?</span>
-            <select v-model="editedCompany.categories" multiple required>
+          <label for="type-marque" id="type-marque">
+            <span class="mb-2 block font-medium text-xl">Type</span>
+            <select
+              name="suggestion-type"
+              id="suggestion-type"
+              v-model="editedCompany.type"
+              class="font-medium border border-gray-300 rounded-sm py-3.5 px-4"
+            >
               <option
-                v-for="(label, key) in CATEGORIES"
-                :key="key"
-                :value="key"
+                v-for="(label, value) in COMPANIES_TYPES"
+                :value="value"
+                :key="value"
               >
                 {{ label }}
               </option>
             </select>
+          </label>
+          <UITextarea
+            v-model.trim="editedCompany.description"
+            label="Que fait de la marque ?"
+            autocomplete="on"
+            labelFor="description-marque"
+            :maxLength="500"
+            required
+          />
+
+          <fieldset>
+            <h3 class="font-medium text-xl mb-2">Où est basée la marque ?</h3>
+            <div class="flex flex-col lg:flex-row gap-6">
+              <UIInput
+                v-model.trim="editedCompany.city"
+                label="Ville"
+                autocomplete="on"
+                labelFor="ville-marque"
+                class="w-full"
+                labelSize="s"
+              />
+              <UIInput
+                v-model.trim="editedCompany.country"
+                label="Pays"
+                autocomplete="on"
+                labelFor="pays-marque"
+                class="w-full"
+                labelSize="s"
+              />
+            </div>
           </fieldset>
-          <fieldset class="flex flex-col gap-2">
-            <span>Des mentions spéciales ?</span>
-            <select v-model="editedCompany.mentions" multiple>
-              <option v-for="(label, key) in MENTIONS" :key="key" :value="key">
-                {{ label }}
-              </option>
-            </select>
+          <fieldset>
+            <div class="flex flex-col gap-y-4">
+              <label class="w-full font-medium text-xl">
+                <span> Dans quel(s) secteur(s) se trouve la marque ? * </span>
+                <span class="text-sm"> Sélection multiple </span>
+                <select
+                  v-model="editedCompany.categories"
+                  multiple
+                  required
+                  class="w-full p-2 border border-gray-300 rounded-lg focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-black mt-2"
+                >
+                  <option
+                    v-for="(label, key) in CATEGORIES"
+                    :key="key"
+                    :value="key"
+                    class="p-1 text-base"
+                  >
+                    {{ label }}
+                  </option>
+                  {{
+                    CATEGORIES
+                  }}
+                </select>
+              </label>
+
+              <label class="w-full font-medium text-xl mt-4">
+                <span class="mb-2">Des mentions spéciales ?</span>
+                <span class="text-sm"> Sélection multiple </span>
+                <select
+                  v-model="editedCompany.mentions"
+                  multiple
+                  class="w-full p-2 border border-gray-300 rounded-lg focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-black mt-2"
+                >
+                  <option
+                    v-for="(label, key) in MENTIONS"
+                    :key="key"
+                    :value="key"
+                    class="p-1 text-base"
+                  >
+                    {{ label }}
+                  </option>
+                  {{
+                    CATEGORIES
+                  }}
+                </select>
+              </label>
+            </div>
           </fieldset>
         </div>
       </template>
@@ -124,7 +198,7 @@
           class="p-4 bg-green-100 border border-green-300 rounded-xl flex flex-col md:flex-row gap-3 items-center justify-between max-w-96 mx-auto"
         >
           <span class="font-medium text-green-800">
-            Entreprise mise à jour !
+            Informations mises à jour !
           </span>
           <UIButton
             label="Voir la mise à jour"
@@ -133,15 +207,15 @@
           />
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-6">
-          <UIButton label="Modifier" size="m" class="w-full" />
+        <div class="flex flex-col sm:flex-row gap-6 pt-8">
           <UIButton
-            label="Retour"
+            label="Annuler"
             :onClick="cancel"
             size="m"
-            color="grey"
+            color="ghost"
             class="w-full"
           />
+          <UIButton label="Modifier" size="m" class="w-full" />
         </div>
       </template>
     </UIForm>
@@ -150,14 +224,16 @@
 
 <script setup lang="ts">
 import { onBeforeMount, ref } from "vue"
+import { useRoute, useRouter } from "vue-router"
+import { useFetchCompanies } from "@/api/fetchCompanies"
 import { useCompanyStore } from "@/stores/useCompanyStore"
 import { CATEGORIES } from "@/composables/categories"
 import { MENTIONS } from "@/composables/mentions"
+import { COMPANIES_TYPES } from "@/composables/companies.types"
 import UIButton from "@/components/UI/UIButton.vue"
 import UIForm from "@/components/UI/UIForm.vue"
 import UIInput from "@/components/UI/UIInput.vue"
-import { useFetchCompanies } from "@/api/fetchCompanies"
-import { useRoute, useRouter } from "vue-router"
+import UITextarea from "@/components/UI/UITextarea.vue"
 import type { Company } from "@/types/companies"
 
 const store = useCompanyStore()
@@ -185,6 +261,7 @@ const editedCompany = ref<Omit<Company, "id">>({
   categories: [],
   mentions: [],
   status: "to-check",
+  created_date: 0,
 })
 
 const foundersInput = ref("")

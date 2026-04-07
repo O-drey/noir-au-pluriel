@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/rusty-hooks');
 @import "tailwindcss";
 
 #app {
@@ -18,6 +19,7 @@
   --vt-c-black-mute: #282828;
 
   --vt-c-indigo: #2c3e50;
+  --color-sable-50: #FBF9F6;
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -28,9 +30,7 @@
   --vt-c-text-light-2: rgba(0, 0, 0, 1);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-}
 
-:root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
@@ -42,6 +42,8 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
+/* --font-rusty-hooks : "Rusty Hooks", sans-serif */
 }
 
 *,
@@ -76,4 +78,16 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --font-rusty: "Rusty Hooks", sans-serif;
+                                                
+
+  --color-sable-100:  var(--color-sable-50);
+  /* --color-sable-200: var(--color-sable-100);
+  --color-sable-300: var(--color-sable-100);
+  --color-sable-400: var(--color-sable-100);
+  --color-sable-500: var(--color-sable-100);
+  --color-sable-600: var(--color-sable-100); */
 }

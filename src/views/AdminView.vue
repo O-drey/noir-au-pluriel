@@ -1,24 +1,25 @@
 <template>
   <AuthView v-if="!adminIsConnected" />
-  <div v-else>
-    <h1>Bonjour Sara</h1>
+  <div v-else class="py-40 px-4 lg:px-16">
+    <h1 class="text-2xl font-bold mb-8">Bonjour Sara</h1>
 
-    <nav class="overflow-hidden">
-      <span>Statut : {{ filteredCompanies.length }}</span>
-      <ul
-        class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
-      >
-        <li v-for="item in menu" :key="item.value">
-          <UIButton
-            :label="item.name"
-            size="m"
-            color="grey"
-            :onClick="() => filter(item.value as Company['status'])"
-          />
-        </li>
-      </ul>
-    </nav>
-    <CompaniesList :companies="filteredCompanies" />
+    <div class="bg-sable-100 space-y-14 h-auto">
+      <nav class="overflow-hidden">
+        <ul
+          class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
+        >
+          <li v-for="item in menu" :key="item.value">
+            <UIButton
+              :label="item.name"
+              size="m"
+              color="ghost"
+              :onClick="() => filter(item.value as Company['status'])"
+            />
+          </li>
+        </ul>
+      </nav>
+      <CompaniesList :companies="filteredCompanies" />
+    </div>
   </div>
 </template>
 
