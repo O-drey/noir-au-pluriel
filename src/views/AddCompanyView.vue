@@ -9,7 +9,7 @@
     >
       <template #content>
         <div v-if="!suggested">
-          <h1 class="text-center font-bold text-4xl mb-8">
+          <h1 class="text-center font-bold text-3xl lg:text-4xl mb-8">
             <label for="type-marque" id="type-marque">
               Ajouter
               <select

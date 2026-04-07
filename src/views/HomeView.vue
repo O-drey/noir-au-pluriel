@@ -3,18 +3,18 @@
     <section id="hero" class="w-full">
       <div class="text-center max-w-2xl mx-auto">
         <h1 class="sr-only">Noir au pluriel</h1>
-        <h2 class="font-rusty text-5xl pb-10 font-bold">
+        <h2 class="font-rusty text-4xl lg:text-5xl pb-10 font-bold">
           L'annuaire des marques
           <span class="after:contents:'zigzag'">black&nbsp;owned</span>
           francophones.
         </h2>
 
-        <p class="text-center text-2xl pb-8 font-medium">
+        <p class="text-center text-xl lg:text-2xl pb-8 font-medium">
           Mettez en avant vos entreprises et créateurices afro-descendantes
           préférées pour les soutenir !
         </p>
         <span
-          >{{ activeCompanies.length }} entreprises et créateurices dont
+          >{{ activeCompanies.length }} entreprises et créateurices sont
           présents.</span
         >
         <div class="pt-8">
@@ -27,19 +27,9 @@
       </div>
     </section>
     <div class="bg-sable-100 p-4 py-8 lg:p-16 space-y-14 h-auto lg:pb-40">
-      <!-- <select name="categories-filter" id="categories-filter">
-          <option
-            v-for="item in menu"
-            :key="item.value"
-            :value="item.value"
-            @change="() => filter(item.value as CategoriesKeys)"
-          >
-            {{ item.name }}
-          </option>
-        </select> -->
       <nav class="overflow-hidden">
         <ul
-          class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
+          class="flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center hidden lg:flex"
         >
           <li v-for="item in menu" :key="item.value">
             <UIButton
@@ -50,7 +40,20 @@
             />
           </li>
         </ul>
+        <label for="categories" id="categories" class="lg:hidden">
+          <select name="categories" id="categories" v-model="activeFilter">
+            <option :value="null">Choisissez une catégorie</option>
+            <option
+              v-for="(item, value) in menu"
+              :value="item.value"
+              :key="value"
+            >
+              {{ item.name }}
+            </option>
+          </select>
+        </label>
       </nav>
+
       <CompaniesList :companies="filteredCompanies" />
       <div v-if="filteredCompanies.length === 0" class="text-center space-y-8">
         <p class="lg:max-w-xl mx-auto">
@@ -72,6 +75,7 @@ import { ref, computed } from "vue"
 import { storeToRefs } from "pinia"
 import { menu } from "@/composables/menu"
 import { useCompanyStore } from "@/stores/useCompanyStore"
+import { COMPANIES_TYPES } from "@/composables/companies.types"
 import CompaniesList from "../components/CompaniesList.vue"
 import UIButton from "@/components/UI/UIButton.vue"
 import type { CategoriesKeys } from "@/composables/categories"

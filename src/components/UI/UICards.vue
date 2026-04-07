@@ -1,30 +1,28 @@
 <template>
-  <RouterLink :to="href">
-    <div
-      class="bg-white rounded-4xl space-y-6 sm:max-w-full overflow-hidden p-6"
-    >
-      <div class="aspect-square h-auto w-full overflow-hidden">
-        <img
-          :src="img"
-          alt=""
-          aria-roledescription="presentation"
-          class="h-full w-full object-center object-contain"
-        />
-      </div>
-      <div class="space-y-2">
-        <h3 class="text-lg font-semibold">{{ name }}</h3>
-        <p class="text-normal truncate text-gray-600">{{ description }}</p>
-      </div>
-      <div class="flex gap-2 flex-nowrap overflow-hidden">
-        <UIChip
-          v-for="category in categories"
-          :key="category"
-          :text="CATEGORIES[category]"
-        />
-        <!-- <UIChip v-if="hiddenCount > 0" :text="`+${hiddenCount}`" /> -->
-      </div>
+  <div class="bg-white rounded-4xl space-y-6 sm:max-w-full overflow-hidden p-6">
+    <div class="aspect-square h-auto w-full overflow-hidden">
+      <img
+        :src="img"
+        alt=""
+        aria-roledescription="presentation"
+        class="h-full w-full object-center object-contain"
+      />
     </div>
-  </RouterLink>
+    <div class="space-y-2">
+      <RouterLink :to="href">
+        <h3 class="text-lg font-semibold">{{ name }}</h3>
+      </RouterLink>
+      <p class="text-normal truncate text-gray-600">{{ description }}</p>
+    </div>
+    <div class="flex gap-2 flex-nowrap overflow-hidden">
+      <UIChip
+        v-for="category in categories"
+        :key="category"
+        :text="CATEGORIES[category]"
+      />
+      <!-- <UIChip v-if="hiddenCount > 0" :text="`+${hiddenCount}`" /> -->
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
