@@ -1,14 +1,16 @@
 <template>
   <nav class="overflow-hidden">
     <ul
-      class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
+      class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-white rounded-xl p-4 justify-center"
     >
       <li v-for="item in menu" :key="item.value">
         <UIButton
           :label="item.name"
           size="m"
           color="grey"
-          :onClick="() => filter(item.value as CategoriesKeys)"
+          :onClick="
+            () => filter(item.value as CategoriesKeys | Company['status'])
+          "
         />
       </li>
     </ul>

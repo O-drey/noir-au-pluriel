@@ -25,7 +25,16 @@
               :key="el.value"
               class="normal-case font-normal text-white"
             >
-              <RouterLink :to="sub.href">{{ sub.name }}</RouterLink>
+              <RouterLink :to="sub.href" class="hover:underline">{{
+                sub.name
+              }}</RouterLink>
+            </li>
+            <li v-if="el.value === 'contact'">
+              <a
+                href="mailto:noiraupluriel@protonmail.com"
+                class="normal-case font-normal text-white hover:underline"
+                >noiraupluriel@protonmail.com</a
+              >
             </li>
           </ul>
         </li>
@@ -38,17 +47,11 @@
 import logo from "@/assets/logo-noir-au-pluriel-3.svg"
 const footerMenu = [
   {
-    value: "project",
-    name: "Le projet",
+    value: "navigation",
+    name: "Navigation",
     submenu: [
       { value: "home", name: "Accueil", href: "/" },
       { value: "about", name: "À propos", href: "/a-propos" },
-    ],
-  },
-  {
-    value: "add",
-    name: "Compléter l'annuaire",
-    submenu: [
       {
         value: "add",
         name: "Compléter l'annuaire",
@@ -56,14 +59,36 @@ const footerMenu = [
       },
     ],
   },
+
   {
     value: "admin",
-    name: "",
+    name: "Équipe",
     submenu: [
       {
         value: "admin",
         name: "Espace Administrateur",
         href: "/admin",
+      },
+    ],
+  },
+  {
+    value: "contact",
+    name: "Contact",
+    submenu: [
+      {
+        value: "linkedin",
+        name: "LinkedIn",
+        href: "#",
+      },
+      {
+        value: "instagram",
+        name: "Instagram",
+        href: "#",
+      },
+      {
+        value: "youtube",
+        name: "Youtube",
+        href: "#",
       },
     ],
   },

@@ -16,4 +16,5 @@ export interface Company {
   categories: CategoriesKeys[]
   mentions: MentionsKeys[]
   status: "active" | "to-check" | "disabled"
+  created_date: number
 }

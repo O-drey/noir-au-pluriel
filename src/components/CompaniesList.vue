@@ -1,12 +1,19 @@
 <template>
-  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-6">
-    <UICards
-      v-for="company in companies"
-      :name="company.name"
-      :href="`/entreprise/${company.id}`"
-      :img="company.logo"
-      :categories="company.categories"
-    />
+  <div class="lg:gap-x-8 lg:gap-y-6">
+    <span class="block font-medium mb-6"
+      >{{ companies.length }} entreprise{{ companies.length > 1 ? "s" : "" }} et
+      créateur/créatrices</span
+    >
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <UICards
+        v-for="company in companies"
+        :name="company.name"
+        :href="`/entreprise/${company.id}`"
+        :img="company.logo"
+        :description="company.description"
+        :categories="company.categories"
+      />
+    </div>
   </div>
 </template>
 
