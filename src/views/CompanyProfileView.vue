@@ -159,9 +159,10 @@ const socialName = (url: string) => {
             : "Pinterest"
 }
 
+const router = useRouter()
+
 const onDelete = () => {
   companyStore.deleteCompany(companyId)
-  const router = useRouter()
   router.go(-1)
 }
 
