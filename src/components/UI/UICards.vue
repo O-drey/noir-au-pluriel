@@ -14,13 +14,15 @@
       </RouterLink>
       <p class="text-normal truncate text-gray-600">{{ description }}</p>
     </div>
-    <div class="flex gap-2 flex-nowrap overflow-hidden">
+    <div
+      class="flex gap-2 flex-nowrap overflow-hidden overflow-x-auto scroll-x snap-x snap-mandatory"
+    >
       <UIChip
         v-for="category in categories"
         :key="category"
         :text="CATEGORIES[category]"
+        class="snap-center"
       />
-      <!-- <UIChip v-if="hiddenCount > 0" :text="`+${hiddenCount}`" /> -->
     </div>
   </div>
 </template>
@@ -37,11 +39,5 @@ const props = defineProps<{
   href: string
   description: string
   categories: CategoriesKeys[]
-  // maxVisible: 2
 }>()
-
-// const visibleChips = computed(() => props.categories.slice(0, props.maxVisible))
-// const hiddenCount = computed(() =>
-//   Math.max(0, props.categories.length - props.maxVisible),
-// )
 </script>
