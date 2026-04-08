@@ -4,7 +4,10 @@
   >
     <!-- Mobile -->
     <div
-      class="flex items-center justify-between lg:hidden border-b border-b-gray-300"
+      :class="[
+        'flex items-center justify-between lg:hidden ',
+        { 'border-b border-b-gray-300': isOpen },
+      ]"
     >
       <RouterLink to="/">
         <div class="aspect-w-10 aspect-h-1 w-40 lg:hidden">
