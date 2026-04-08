@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="bg-black py-8 px-6 text-white flex flex-col lg:flex-row justify-between items-center"
+    class="bg-black py-8 px-6 text-white flex flex-col gap-y-4 lg:flex-row justify-between items-center"
   >
     <div class="w-full lg:w-1/5">
       <div class="mb-4">
@@ -78,17 +78,17 @@ const footerMenu = [
       {
         value: "linkedin",
         name: "LinkedIn",
-        href: "#",
+        href: "/#",
       },
       {
         value: "instagram",
         name: "Instagram",
-        href: "#",
+        href: "/#",
       },
       {
         value: "youtube",
         name: "Youtube",
-        href: "#",
+        href: "/#",
       },
     ],
   },

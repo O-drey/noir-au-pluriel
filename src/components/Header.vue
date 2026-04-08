@@ -3,7 +3,9 @@
     class="fixed z-10 w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 text-base font-medium p-4 lg:px-8 bg-white/50 backdrop-blur-sm border-b border-b-white"
   >
     <!-- Mobile -->
-    <div class="flex items-center justify-between lg:hidden">
+    <div
+      class="flex items-center justify-between lg:hidden border-b border-b-gray-300"
+    >
       <RouterLink to="/">
         <div class="aspect-w-10 aspect-h-1 w-40 lg:hidden">
           <img
@@ -16,28 +18,39 @@
         </div>
       </RouterLink>
       <UIButton
-        label="Menu"
+        :label="isOpen ? 'Fermer' : 'Menu'"
         class="lg:hidden"
         color="ghost"
         @click="isOpen = !isOpen"
       />
     </div>
-    <div v-if="isOpen" class="flex flex-col justify-between gap-4 lg:hidden">
+    <nav
+      v-if="isOpen"
+      class="flex flex-col justify-between lg:hidden text-center"
+    >
+      <UIButton
+        href="/"
+        label="Accueil"
+        color="ghost"
+        :class="{ 'bg-[#B0630B]/20': $route.path === '/' }"
+      />
       <UIButton
         v-if="adminIsConnected"
         label="Se déconnecter"
-        size="s"
         color="ghost"
         :onClick="logout"
-        class="text-left lg:text-center"
       />
-      <UIButton href="/a-propos" label="À propos" size="m" color="ghost" />
+      <UIButton
+        href="/a-propos"
+        label="À propos"
+        color="ghost"
+        :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
+      />
       <UIButton
         href="/ajouter-entreprise-createur"
         label="Compléter l'annuaire"
-        size="m"
       />
-    </div>
+    </nav>
 
     <!-- Desktop -->
 
@@ -62,9 +75,15 @@
         size="s"
         color="ghost"
         :onClick="logout"
-        class="text-left lg:text-center"
+        class="text-center"
       />
-      <UIButton href="/a-propos" label="À propos" size="m" color="ghost" />
+      <UIButton
+        href="/a-propos"
+        label="À propos"
+        size="m"
+        color="ghost"
+        :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
+      />
       <UIButton
         href="/ajouter-entreprise-createur"
         label="Compléter l'annuaire"
@@ -80,10 +99,14 @@ import logo from "@/assets/logo-noir-au-pluriel-3.svg"
 import UIButton from "./UI/UIButton.vue"
 import { storeToRefs } from "pinia"
 import { useAdminStore } from "@/stores/useAdminStore"
+import { useRouter } from "vue-router"
 
 const adminStore = useAdminStore()
 const { adminIsConnected } = storeToRefs(adminStore)
 const logout = () => adminStore.logout()
 
 const isOpen = ref(false)
+const router = useRouter()
+const path = ref("")
+path.value = router.currentRoute.value.path
 </script>

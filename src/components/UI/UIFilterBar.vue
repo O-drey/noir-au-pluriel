@@ -11,6 +11,7 @@
           :onClick="
             () => filter(item.value as CategoriesKeys | Company['status'])
           "
+          :class="{ 'bg-[#B0630B]/20': activeFilter === item.value }"
         />
       </li>
     </ul>
