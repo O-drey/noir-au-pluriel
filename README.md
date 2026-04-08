@@ -1,6 +1,8 @@
-# .
+# Noir au pluriel
 
-This template should help get you started developing with Vue 3 in Vite.
+Noir au pluriel est une plateforme collaborative qui vise à mettre en avant les entreprise _black owned_ francophones.
+
+Sans inscription, personnes afro-descendantes et alliées peuvent suggérer une entreprise, un ou une créatrice afro-descendante. Si votre suggestion est validée par l'équipe administrative, elle sera visible pour tout le monde !
 
 ## Recommended IDE Setup
 
