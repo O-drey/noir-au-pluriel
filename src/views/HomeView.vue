@@ -29,14 +29,24 @@
     <div class="bg-sable-100 p-4 py-8 lg:p-16 space-y-14 h-auto lg:pb-40">
       <nav class="overflow-hidden">
         <ul
-          class="flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center hidden lg:flex"
+          class="flex-col gap-4 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center hidden lg:flex"
         >
+          <li>
+            <UIButton
+              label="Tout"
+              size="m"
+              color="ghost"
+              :onClick="() => filter(activeFilter as CategoriesKeys)"
+              :class="{ 'bg-[#B0630B]/20': activeFilter === null }"
+            />
+          </li>
           <li v-for="item in menu" :key="item.value">
             <UIButton
               :label="item.name"
               size="m"
               color="ghost"
               :onClick="() => filter(item.value as CategoriesKeys)"
+              :class="{ 'bg-[#B0630B]/20': activeFilter === item.value }"
             />
           </li>
         </ul>

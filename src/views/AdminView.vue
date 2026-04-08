@@ -6,7 +6,7 @@
     <div class="bg-sable-100 space-y-14 h-auto">
       <nav class="overflow-hidden">
         <ul
-          class="flex flex-col gap-8 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
+          class="flex flex-col gap-4 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center"
         >
           <li v-for="item in menu" :key="item.value">
             <UIButton
@@ -14,6 +14,7 @@
               size="m"
               color="ghost"
               :onClick="() => filter(item.value as Company['status'])"
+              :class="{ 'bg-[#B0630B]/20': activeFilter === item.value }"
             />
           </li>
         </ul>
@@ -39,6 +40,7 @@ const { companies } = storeToRefs(companyStore)
 const adminStore = useAdminStore()
 const { adminIsConnected } = storeToRefs(adminStore)
 const menu = [
+  { value: "", name: "Tout" },
   { value: "to-check", name: "À vérifier" },
   { value: "active", name: "Valider" },
   { value: "disabled", name: "Désactiver" },
