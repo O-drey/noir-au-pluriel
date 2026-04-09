@@ -282,14 +282,12 @@ const submit = async () => {
     created_date: Date.now(),
   })
   suggested.value = true
-  // router.replace({ path: "/" })
 
   return data
 }
 
 const fetchLogo = async () => {
   const data = (await fetch(logoInput.value)).body
-  console.log(data)
   return data
 }
 

@@ -59,19 +59,7 @@
               />
             </div>
           </div>
-          <!-- <UIInput
-            type="file"
-            label="Déposez un fichier"
-            labelFor="logo-marque"
-            @change="handleFileChange"
-          /> -->
-          <!-- <UIInput
-            v-model.trim="logoInput"
-            label="Lien du logo"
-            autocomplete="on"
-            labelFor="logo-marque"
-            :placeholder="originalCompany?.logo"
-          /> -->
+
           <UIInput
             v-model.trim="editedCompany.website"
             label="Site web"

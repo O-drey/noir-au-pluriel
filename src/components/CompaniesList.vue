@@ -18,12 +18,8 @@
 </template>
 
 <script setup lang="ts">
-// import { storeToRefs } from "pinia"
-// import { useCompanyStore } from "@/stores/useCompanyStore"
 import UICards from "./UI/UICards.vue"
 import type { Company } from "@/types/companies"
 
 defineProps<{ companies: Company[] }>()
-// const store = useCompanyStore()
-// const { companies } = storeToRefs(store)
 </script>

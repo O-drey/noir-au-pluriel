@@ -146,7 +146,6 @@ onBeforeMount(async () => {
   if (!companyId) return
   company.value = await retrieve(companyId)
   companyStatus.value = company.value?.status ?? "to-check"
-  console.dir("company.value : ", company.value)
 })
 
 const adminStore = useAdminStore()
