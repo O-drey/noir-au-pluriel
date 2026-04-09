@@ -19,7 +19,7 @@
         >
         <div class="pt-8">
           <UIButton
-            href="/ajouter-entreprise-createur"
+            href="/formulaire-suggestion"
             label="Complétez l'annuaire"
             size="l"
           />
@@ -72,7 +72,7 @@
         </p>
         <UIButton
           label="Complétez l'annuaire"
-          href="/ajouter-entreprise-createur"
+          href="/formulaire-suggestion"
           size="l"
         />
       </div>

@@ -105,9 +105,16 @@
       </div>
     </div>
     <div v-else>
-      <p>
-        Aucune entreprise trouvée, cherchez une autre entreprise ou signalez une
-        erreur à l'administrateur.
+      <p class="text-center">
+        Aucune entreprise trouvée,
+        <RouterLink to="/" class="underline">
+          cherchez une autre entreprise</RouterLink
+        >
+        ou
+        <a href="mailto:noiraupluriel@protonmail.com" class="underline"
+          >signalez une erreur</a
+        >
+        à l'administrateur.
       </p>
     </div>
   </div>

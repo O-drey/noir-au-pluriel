@@ -49,10 +49,7 @@
         color="ghost"
         :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
       />
-      <UIButton
-        href="/ajouter-entreprise-createur"
-        label="Compléter l'annuaire"
-      />
+      <UIButton href="/formulaire-suggestion" label="Compléter l'annuaire" />
     </nav>
 
     <!-- Desktop -->
@@ -88,7 +85,7 @@
         :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
       />
       <UIButton
-        href="/ajouter-entreprise-createur"
+        href="/formulaire-suggestion"
         label="Compléter l'annuaire"
         size="m"
       />

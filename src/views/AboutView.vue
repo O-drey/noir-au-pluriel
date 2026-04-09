@@ -71,7 +71,7 @@
       </ul>
       <div class="pt-8">
         <UIButton
-          href="/ajouter-entreprise-createur"
+          href="/formulaire-suggestion"
           label="Proposez une entreprise"
           size="l"
           class="text-center"

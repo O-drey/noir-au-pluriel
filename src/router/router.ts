@@ -15,8 +15,8 @@ const router = createRouter({
       component: () => import("@/views/AboutView.vue"),
     },
     {
-      path: "/ajouter-entreprise-createur",
-      name: "ajouter-entreprise-createur",
+      path: "/formulaire-suggestion",
+      name: "formulaire-suggestion",
       component: () => import("@/views/AddCompanyView.vue"),
     },
     {
@@ -33,6 +33,11 @@ const router = createRouter({
       path: "/admin/entreprise/:id/edit",
       name: "edit-company",
       component: () => import("@/views/UpdateCompanyView.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: () => import("@/views/NotFoundView.vue"),
     },
   ],
 })
