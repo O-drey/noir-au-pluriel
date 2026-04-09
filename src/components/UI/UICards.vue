@@ -5,7 +5,9 @@
         :src="img"
         alt=""
         aria-roledescription="presentation"
+        ref="imgRef"
         class="h-full w-full object-center object-contain"
+        :loading="imgIsVisible ? 'eager' : 'lazy'"
       />
     </div>
     <div class="space-y-2">
@@ -28,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
+import { onMounted, onUnmounted, ref } from "vue"
 import UIChip from "./UIChip.vue"
 import { CATEGORIES } from "@/composables/categories"
 import type { CategoriesKeys } from "@/composables/categories"
@@ -40,4 +42,24 @@ const props = defineProps<{
   description: string
   categories: CategoriesKeys[]
 }>()
+
+const imgRef = ref<HTMLImageElement>()
+const imgIsVisible = ref(false)
+let observer: IntersectionObserver
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry?.isIntersecting) {
+        imgIsVisible.value = true
+        observer.disconnect() //
+      }
+    },
+    { threshold: 0.1 },
+  )
+
+  if (imgRef.value) observer.observe(imgRef.value)
+})
+
+onUnmounted(() => observer?.disconnect())
 </script>

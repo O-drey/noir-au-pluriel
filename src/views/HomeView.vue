@@ -51,6 +51,7 @@
           </li>
         </ul>
         <label for="categories" id="categories" class="lg:hidden">
+          <span>Choisissez une catégorie</span>
           <select name="categories" id="categories" v-model="activeFilter">
             <option :value="null">Choisissez une catégorie</option>
             <option
@@ -85,7 +86,6 @@ import { ref, computed } from "vue"
 import { storeToRefs } from "pinia"
 import { menu } from "@/composables/menu"
 import { useCompanyStore } from "@/stores/useCompanyStore"
-import { COMPANIES_TYPES } from "@/composables/companies.types"
 import CompaniesList from "../components/CompaniesList.vue"
 import UIButton from "@/components/UI/UIButton.vue"
 import type { CategoriesKeys } from "@/composables/categories"
