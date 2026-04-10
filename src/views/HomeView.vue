@@ -50,7 +50,7 @@
             />
           </li>
         </ul>
-        <label for="categories" id="categories" class="lg:hidden">
+        <label id="categories" class="lg:hidden">
           <span>Choisissez une catégorie</span>
           <select name="categories" id="categories" v-model="activeFilter">
             <option :value="null">Choisissez une catégorie</option>
@@ -63,10 +63,42 @@
             </option>
           </select>
         </label>
+        <div class="flex flex-col lg:flex-row gap-4 items-center">
+          <div class="my-6">
+            <label v-if="companies.length > 1" class="lg:hidden">
+              <span>Trier par </span>
+              <select v-model="selectedSortingType" name="tri" id="tri">
+                <option value="name-ascending">Ordre alphabétique (A-Z)</option>
+                <option value="name-descending">
+                  Ordre alphabétique inversé (Z-A)
+                </option>
+                <option value="newest">Du plus récent au plus ancien</option>
+                <option value="oldest">Du plus ancien au plus récent</option>
+              </select>
+            </label>
+            <span class="block font-medium">
+              {{ companies.length }} entreprise{{
+                companies.length > 1 ? "s" : ""
+              }}
+              et créateur/créatrices
+            </span>
+          </div>
+          <label v-if="companies.length > 1" class="hidden lg:inline-block">
+            <span>Trier par </span>
+            <select v-model="selectedSortingType" name="tri" id="tri">
+              <option value="name-ascending">Ordre alphabétique (A-Z)</option>
+              <option value="name-descending">
+                Ordre alphabétique inversé (Z-A)
+              </option>
+              <option value="newest">Du plus récent au plus ancien</option>
+              <option value="oldest">Du plus ancien au plus récent</option>
+            </select>
+          </label>
+        </div>
       </nav>
 
-      <CompaniesList :companies="filteredCompanies" />
-      <div v-if="filteredCompanies.length === 0" class="text-center space-y-8">
+      <CompaniesList :companies="companies" />
+      <div v-if="companies.length === 0" class="text-center space-y-8">
         <p class="lg:max-w-xl mx-auto">
           Nous n'avons pas encore d'entreprise ou créateur/créatrice dans ce
           domaine, mais si vous en connaissez donnez-leur de la force !
@@ -84,6 +116,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
 import { storeToRefs } from "pinia"
+import { sortCompanies } from "@/composables/companies"
 import { menu } from "@/composables/menu"
 import { useCompanyStore } from "@/stores/useCompanyStore"
 import CompaniesList from "../components/CompaniesList.vue"
@@ -104,4 +137,25 @@ const filteredCompanies = computed(() => {
 const filter = (value: CategoriesKeys) => {
   activeFilter.value = activeFilter.value === value ? null : value
 }
+
+const {
+  sortCompaniesByNameAscending,
+  sortCompaniesByNameDescending,
+  sortCompaniesByNewest,
+  sortCompaniesByOldest,
+} = sortCompanies()
+
+const selectedSortingType = ref<string>("newest")
+
+const companies = computed(() => {
+  const sorted = [...filteredCompanies.value]
+
+  if (selectedSortingType.value === "name-ascending")
+    sortCompaniesByNameAscending(sorted)
+  else if (selectedSortingType.value === "name-descending")
+    sortCompaniesByNameDescending(sorted)
+  else if (selectedSortingType.value === "oldest") sortCompaniesByOldest(sorted)
+  else sortCompaniesByNewest(sorted)
+  return sorted
+})
 </script>
