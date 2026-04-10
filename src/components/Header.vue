@@ -96,7 +96,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import logo from "@/assets/logo-noir-au-pluriel-3.svg"
+import logo from "@/assets/logo-noir-au-pluriel-2.svg"
 import UIButton from "./UI/UIButton.vue"
 import { storeToRefs } from "pinia"
 import { useAdminStore } from "@/stores/useAdminStore"

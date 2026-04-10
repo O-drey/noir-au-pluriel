@@ -282,7 +282,6 @@ const submit = async () => {
     created_date: Date.now(),
   })
 
-  console.log("data :", data)
   suggested.value = true
 
   return data
