@@ -26,8 +26,8 @@
         </div>
       </div>
     </section>
-    <div class="bg-sable-100 p-4 py-8 lg:p-16 space-y-14 h-auto lg:pb-40">
-      <nav class="overflow-hidden">
+    <div class="bg-sable-100 p-4 py-8 lg:p-16 h-auto lg:pb-40">
+      <nav class="hidden overflow-hidden mb-12 lg:block">
         <ul
           class="flex-col gap-4 text-base font-medium sm:flex-row bg-gray-100 rounded-xl p-4 justify-center hidden lg:flex"
         >
@@ -50,41 +50,24 @@
             />
           </li>
         </ul>
-        <label id="categories" class="lg:hidden">
-          <span>Choisissez une catégorie</span>
-          <select name="categories" id="categories" v-model="activeFilter">
-            <option :value="null">Choisissez une catégorie</option>
-            <option
-              v-for="(item, value) in menu"
-              :value="item.value"
-              :key="value"
-            >
-              {{ item.name }}
-            </option>
-          </select>
-        </label>
+      </nav>
+      <div class="space-y-8">
         <div class="flex flex-col lg:flex-row gap-4 items-center">
-          <div class="my-6">
-            <label v-if="companies.length > 1" class="lg:hidden">
-              <span>Trier par </span>
-              <select v-model="selectedSortingType" name="tri" id="tri">
-                <option value="name-ascending">Ordre alphabétique (A-Z)</option>
-                <option value="name-descending">
-                  Ordre alphabétique inversé (Z-A)
-                </option>
-                <option value="newest">Du plus récent au plus ancien</option>
-                <option value="oldest">Du plus ancien au plus récent</option>
-              </select>
-            </label>
-            <span class="block font-medium">
-              {{ companies.length }} entreprise{{
-                companies.length > 1 ? "s" : ""
-              }}
-              et créateur/créatrices
-            </span>
-          </div>
-          <label v-if="companies.length > 1" class="hidden lg:inline-block">
-            <span>Trier par </span>
+          <label id="categories" class="lg:hidden">
+            <span class="font-medium">Choisissez une catégorie</span>
+            <select name="categories" id="categories" v-model="activeFilter">
+              <option :value="null">Choisissez une catégorie</option>
+              <option
+                v-for="(item, value) in menu"
+                :value="item.value"
+                :key="value"
+              >
+                {{ item.name }}
+              </option>
+            </select>
+          </label>
+          <label v-if="companies.length > 1" class="lg:hidden">
+            <span class="font-medium">Trier par </span>
             <select v-model="selectedSortingType" name="tri" id="tri">
               <option value="name-ascending">Ordre alphabétique (A-Z)</option>
               <option value="name-descending">
@@ -94,20 +77,42 @@
               <option value="oldest">Du plus ancien au plus récent</option>
             </select>
           </label>
-        </div>
-      </nav>
+          <span class="block font-medium">
+            {{ companies.length }} entreprise{{
+              companies.length > 1 ? "s" : ""
+            }}
+            et créateur/créatrices
+          </span>
 
-      <CompaniesList :companies="companies" />
-      <div v-if="companies.length === 0" class="text-center space-y-8">
-        <p class="lg:max-w-xl mx-auto">
-          Nous n'avons pas encore d'entreprise ou créateur/créatrice dans ce
-          domaine, mais si vous en connaissez donnez-leur de la force !
-        </p>
-        <UIButton
-          label="Complétez l'annuaire"
-          href="/formulaire-suggestion"
-          size="l"
-        />
+          <label v-if="companies.length > 1" class="hidden lg:inline-block">
+            <span class="font-medium">Trier par </span>
+            <select
+              v-model="selectedSortingType"
+              name="tri"
+              id="tri"
+              class="text-[#874316]"
+            >
+              <option value="name-ascending">Ordre alphabétique (A-Z)</option>
+              <option value="name-descending">
+                Ordre alphabétique inversé (Z-A)
+              </option>
+              <option value="newest">Du plus récent au plus ancien</option>
+              <option value="oldest">Du plus ancien au plus récent</option>
+            </select>
+          </label>
+        </div>
+        <CompaniesList :companies="companies" />
+        <div v-if="companies.length === 0" class="text-center space-y-8">
+          <p class="lg:max-w-xl mx-auto">
+            Nous n'avons pas encore d'entreprise ou créateur/créatrice dans ce
+            domaine, mais si vous en connaissez donnez-leur de la force !
+          </p>
+          <UIButton
+            label="Complétez l'annuaire"
+            href="/formulaire-suggestion"
+            size="l"
+          />
+        </div>
       </div>
     </div>
   </div>

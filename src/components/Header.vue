@@ -5,7 +5,7 @@
     <!-- Mobile -->
     <div
       :class="[
-        'flex items-center justify-between lg:hidden ',
+        'flex items-baseline justify-between lg:hidden ',
         { 'border-b border-b-gray-300': isOpen },
       ]"
     >
@@ -25,6 +25,7 @@
         class="lg:hidden"
         color="ghost"
         @click="isOpen = !isOpen"
+        size="s"
       />
     </div>
     <nav
