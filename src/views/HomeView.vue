@@ -5,13 +5,13 @@
         <h1 class="sr-only">Noir au pluriel</h1>
         <h2 class="font-rusty text-4xl lg:text-5xl pb-10 font-bold">
           L'annuaire des marques
-          <span class="after:contents:'zigzag'">black&nbsp;owned</span>
+          <span class="after:contents:'zigzag.svg'">black&nbsp;owned</span>
           francophones.
         </h2>
 
         <p class="text-center text-xl lg:text-2xl pb-8 font-medium">
-          Mettez en avant vos entreprises et créateurices afro-descendantes
-          préférées pour les soutenir !
+          Mettez en avant vos entreprises, créateurs et créatrices
+          afro-descendantes préférées pour les soutenir !
         </p>
         <span
           >{{ activeCompanies.length }} entreprises et créateurices sont
