@@ -59,19 +59,7 @@
               />
             </div>
           </div>
-          <!-- <UIInput
-            type="file"
-            label="Déposez un fichier"
-            labelFor="logo-marque"
-            @change="handleFileChange"
-          /> -->
-          <!-- <UIInput
-            v-model.trim="logoInput"
-            label="Lien du logo"
-            autocomplete="on"
-            labelFor="logo-marque"
-            :placeholder="originalCompany?.logo"
-          /> -->
+
           <UIInput
             v-model.trim="editedCompany.website"
             label="Site web"
@@ -229,7 +217,7 @@ import { useFetchCompanies } from "@/api/fetchCompanies"
 import { useCompanyStore } from "@/stores/useCompanyStore"
 import { CATEGORIES } from "@/composables/categories"
 import { MENTIONS } from "@/composables/mentions"
-import { COMPANIES_TYPES } from "@/composables/companies.types"
+import { COMPANIES_TYPES } from "@/types/companies"
 import UIButton from "@/components/UI/UIButton.vue"
 import UIForm from "@/components/UI/UIForm.vue"
 import UIInput from "@/components/UI/UIInput.vue"

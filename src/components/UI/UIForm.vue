@@ -7,7 +7,6 @@
     :noValidate="novalidate"
     @submit.prevent="onSubmit"
   >
-    <!-- mettre un stepper ? -->
     <slot name="content"></slot>
     <slot name="cta"></slot>
   </form>

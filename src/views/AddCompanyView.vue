@@ -226,17 +226,18 @@
 <script setup lang="ts">
 import { ref } from "vue"
 import { useRouter } from "vue-router"
+import { useAdminStore } from "@/stores/useAdminStore"
 import { useCompanyStore } from "@/stores/useCompanyStore"
+import { storeToRefs } from "pinia"
 import { CATEGORIES } from "@/composables/categories"
 import { MENTIONS } from "@/composables/mentions"
-import { COMPANIES_TYPES } from "@/composables/companies.types"
+import { COMPANIES_TYPES } from "@/types/companies"
 import UIButton from "@/components/UI/UIButton.vue"
 import UIForm from "@/components/UI/UIForm.vue"
 import UIInput from "@/components/UI/UIInput.vue"
-import type { Company } from "@/types/companies"
-import { useAdminStore } from "@/stores/useAdminStore"
-import { storeToRefs } from "pinia"
 import UITextarea from "@/components/UI/UITextarea.vue"
+import placeholderImg from "@/assets/400.webp"
+import type { Company } from "@/types/companies"
 
 const companyStore = useCompanyStore()
 const adminStore = useAdminStore()
@@ -276,20 +277,19 @@ const submit = async () => {
   const data = await companyStore.createCompany({
     ...newCompany.value,
     founders: foundersInput.value.split(","),
-    logo:
-      (logoInput.value || newCompany.value.logo) ?? "https://placehold.co/400",
+    logo: logoInput.value || newCompany.value.logo || placeholderImg,
     socials: socialsInput.value.split(","),
     created_date: Date.now(),
   })
+
+  console.log("data :", data)
   suggested.value = true
-  // router.replace({ path: "/" })
 
   return data
 }
 
 const fetchLogo = async () => {
   const data = (await fetch(logoInput.value)).body
-  console.log(data)
   return data
 }
 

@@ -55,7 +55,7 @@ const footerMenu = [
       {
         value: "add",
         name: "Compléter l'annuaire",
-        href: "/ajouter-entreprise-createur",
+        href: "/formulaire-suggestion",
       },
     ],
   },

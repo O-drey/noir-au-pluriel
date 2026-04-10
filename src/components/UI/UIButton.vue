@@ -22,7 +22,6 @@
     ]"
     >{{ label }}</RouterLink
   >
-  <!-- ajouter classe active pour les liens -->
 </template>
 
 <script setup lang="ts">

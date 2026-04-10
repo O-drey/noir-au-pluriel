@@ -50,7 +50,6 @@ const activeFilter = ref<Company["status"] | null>("to-check")
 
 const filteredCompanies = computed(() => {
   if (!activeFilter.value) return companies.value
-  console.log(activeFilter.value)
   return companies.value.filter(
     (company) => company.status === activeFilter.value,
   )

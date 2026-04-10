@@ -82,12 +82,13 @@ body {
 
 @theme {
   --font-rusty: "Rusty Hooks", sans-serif;
-                                                
-
   --color-sable-100:  var(--color-sable-50);
-  /* --color-sable-200: var(--color-sable-100);
-  --color-sable-300: var(--color-sable-100);
-  --color-sable-400: var(--color-sable-100);
-  --color-sable-500: var(--color-sable-100);
-  --color-sable-600: var(--color-sable-100); */
+}
+
+@font-face {
+    font-family: "fallback for Rusty Hooks";
+    src: local("Arial");
+    ascent-override: 105%;
+    descent-override: 35%;
+    line-gap-override: 10%;
 }

@@ -5,7 +5,7 @@
     <!-- Mobile -->
     <div
       :class="[
-        'flex items-center justify-between lg:hidden ',
+        'flex items-baseline justify-between lg:hidden ',
         { 'border-b border-b-gray-300': isOpen },
       ]"
     >
@@ -25,6 +25,7 @@
         class="lg:hidden"
         color="ghost"
         @click="isOpen = !isOpen"
+        size="s"
       />
     </div>
     <nav
@@ -49,10 +50,7 @@
         color="ghost"
         :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
       />
-      <UIButton
-        href="/ajouter-entreprise-createur"
-        label="Compléter l'annuaire"
-      />
+      <UIButton href="/formulaire-suggestion" label="Compléter l'annuaire" />
     </nav>
 
     <!-- Desktop -->
@@ -88,7 +86,7 @@
         :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
       />
       <UIButton
-        href="/ajouter-entreprise-createur"
+        href="/formulaire-suggestion"
         label="Compléter l'annuaire"
         size="m"
       />

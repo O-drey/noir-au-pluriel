@@ -4,7 +4,8 @@
     <p class="lg:max-w-md font-medium text-2xl">
       Noir au pluriel est un annuaire collaboratif et participatif dédié aux
       entreprises
-      <span class="whitespace-nowrap italic">black-owned</span> francophones.
+      <span class="whitespace-nowrap italic">black-owned</span> et artistes
+      afro-descendants francophones.
     </p>
 
     <section
@@ -38,18 +39,18 @@
           Pourquoi j’ai créé ce site ?
         </h2>
         <p>
-          Mes proches et moi-même cherchions à consommer plus black-owned pour
-          nos produits capillaires et cosmétiques, mais nous avons déjà été
-          victimes du marketing en pensant soutenir une personne
-          afro-descendante. Face à la multiplication des labels “inspirés” ou ,
-          il est parfois compliqué de distinguer les entreprises réellement
-          black-owned. À cela s’ajoute, la difficulté des entreprises
-          black-owned à se faire connaître, notamment dans les médias et
-          plateformes mainstream. Certains secteurs (mode, beauté, gastronomie,
-          etc.) voient leurs créations ou savoir-faire repris sans
-          reconnaissance ni rétribution équitable. C’est pour cela que Noir au
-          pluriel existe. Pour faciliter l’accès et le soutien aux entreprises
-          alignées avec nos valeurs personelles.
+          Mes proches et moi-même cherchions à consommer plus afro pour nos
+          produits capillaires et cosmétiques, mais nous avons été victimes du
+          marketing en pensant soutenir une personne afro-descendante. Face à la
+          multiplication des labels « inspirés de », il est parfois compliqué de
+          distinguer les entreprises réellement
+          <span class="italic">black-owned</span>. À cela s’ajoute, la
+          difficulté de ces entreprises à se faire connaître, notamment dans les
+          médias et plateformes <span class="italic">mainstream</span>. Certains
+          secteurs (mode, beauté, gastronomie, etc.) voient leurs créations ou
+          savoir-faire repris sans reconnaissance ni rétribution équitable.
+          C’est pour cela que Noir au pluriel existe. Pour faciliter l’accès et
+          le soutien aux entreprises alignées avec nos valeurs personelles.
         </p>
       </div>
       <div
@@ -71,7 +72,7 @@
       </ul>
       <div class="pt-8">
         <UIButton
-          href="/ajouter-entreprise-createur"
+          href="/formulaire-suggestion"
           label="Proposez une entreprise"
           size="l"
           class="text-center"
