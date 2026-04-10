@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import logo from "@/assets/logo-noir-au-pluriel-3.svg"
+import logo from "@/assets/logo-noir-au-pluriel-2.svg"
 const footerMenu = [
   {
     value: "navigation",
