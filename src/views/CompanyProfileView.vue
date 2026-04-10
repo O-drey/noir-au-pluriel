@@ -96,7 +96,10 @@
           target="_blank"
           >Site web</a
         >
-        <ul class="inline-flex flex-col lg:flex-row gap-4">
+        <ul
+          v-if="company.socials"
+          class="inline-flex flex-col lg:flex-row gap-4"
+        >
           <li v-for="social in company.socials">
             <a :href="social" target="_blank">{{ socialName(social) }}</a>
           </li>
@@ -124,14 +127,14 @@
 import { ref, onBeforeMount } from "vue"
 import { useRoute, useRouter } from "vue-router"
 import { useFetchCompanies } from "@/api/fetchCompanies"
+import { useCompanyStore } from "@/stores/useCompanyStore"
+import { useAdminStore } from "@/stores/useAdminStore"
+import { storeToRefs } from "pinia"
 import { CATEGORIES } from "@/composables/categories"
 import { MENTIONS } from "@/composables/mentions"
 import UIChip from "@/components/UI/UIChip.vue"
 import UIButton from "@/components/UI/UIButton.vue"
 import type { Company } from "@/types/companies"
-import { useCompanyStore } from "@/stores/useCompanyStore"
-import { useAdminStore } from "@/stores/useAdminStore"
-import { storeToRefs } from "pinia"
 
 const { retrieve } = useFetchCompanies()
 const { id } = useRoute().params
@@ -146,6 +149,7 @@ onBeforeMount(async () => {
   if (!companyId) return
   company.value = await retrieve(companyId)
   companyStatus.value = company.value?.status ?? "to-check"
+  console.log(company.value)
 })
 
 const adminStore = useAdminStore()
@@ -162,7 +166,9 @@ const socialName = (url: string) => {
           ? "TikTok"
           : url.includes("facebook")
             ? "Facebook"
-            : "Pinterest"
+            : url.includes("pinterest")
+              ? "Pinterest"
+              : ""
 }
 
 const router = useRouter()
