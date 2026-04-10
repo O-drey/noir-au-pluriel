@@ -19,17 +19,18 @@
               label="Mot de passe"
               type="password"
               label-for="password"
-              v-model.trim="passowrd"
+              v-model.trim="password"
               required
             />
           </div>
         </template>
         <template #cta>
-          <div class="flex justify-end">
+          <div class="flex flex-col pt-4 gap-4">
+            <span v-if="errorMsg">{{ errorMsg }}</span>
             <UIButton
               label="Connexion"
               type="submit"
-              class="block mt-8 text-rignt w-full lg:w-fit"
+              class="block text-rignt w-full lg:w-fit"
               size="l"
             />
           </div>
@@ -48,15 +49,17 @@ import UIButton from "@/components/UI/UIButton.vue"
 
 const adminStore = useAdminStore()
 const identifiant = ref<string>("")
-const passowrd = ref<string>("")
-const bearerToken = ref<string>("abc")
-
+const password = ref<string>("")
+const bearerToken = ref<string>("")
+const errorMsg = ref<string>("")
 const login = () => {
   if (
-    !identifiant.value.match(import.meta.env.ADMIN_IDENTIFIANT) ||
-    !passowrd.value.match(import.meta.env.ADMIN_PASSWORD)
+    identifiant.value !== import.meta.env.VITE_ADMIN_IDENTIFIANT ||
+    password.value !== import.meta.env.VITE_ADMIN_PASSWORD
   )
-    return
+    return (errorMsg.value = "Les identifiants ne sont pas correctes")
+
+  bearerToken.value = import.meta.env.VITE_BEARER_TOKEN
   adminStore.login(bearerToken.value)
 }
 </script>

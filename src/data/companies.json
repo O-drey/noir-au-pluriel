@@ -17,7 +17,8 @@
       "country": "France",
       "categories": ["design", "art", "workshop"],
       "mentions": ["handcraft", "sustainale", "familly"],
-      "status": "to-check"
+      "status": "to-check",
+      "created_date": 1644850149
     },
     {
       "id": "4cddf0d8-cc60-459b-84cc-3a6b632706ce",
@@ -33,7 +34,8 @@
       "country": "France",
       "categories": ["fashion", "bags"],
       "mentions": ["sustainale", "plus_size", "woman_owned"],
-      "status": "disabled"
+      "status": "disabled",
+      "created_date": 1586898332
     },
     {
       "id": "4ebc99e0-a141-4260-ad80-5a69ebaa1b3d",
@@ -52,7 +54,8 @@
       "country": "France",
       "categories": ["food", "bar_restaurant"],
       "mentions": ["handcraft", "family"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1471785947
     },
     {
       "id": "3715337e-d8dd-4f6e-96c1-a8c0fb5cff43",
@@ -68,7 +71,8 @@
       "country": "France",
       "categories": ["cosmetics", "beauty", "makeup", "perfume"],
       "mentions": ["cruelty_free", "sustainale", "woman_owned"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1744694033
     },
     {
       "id": "ec1cd7ec-2a0d-4d74-8846-3aa6c7c84493",
@@ -84,7 +88,8 @@
       "country": "Suisse",
       "categories": ["jewels", "design"],
       "mentions": ["handcraft", "sustainale", "luxe"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1572885947
     },
     {
       "id": "714b19e2-463f-423e-bb25-460a2683af66",
@@ -103,7 +108,8 @@
       "country": "France",
       "categories": ["wellbeing", "workshop"],
       "mentions": ["sustainale", "queer"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1552770679
     },
     {
       "id": "d54f7fcc-e474-4baa-a0ba-0c727d440da5",
@@ -119,7 +125,8 @@
       "country": "France",
       "categories": ["art", "decoration"],
       "mentions": ["handcraft", "queer"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1565072098
     },
     {
       "id": "c236ab37-462b-4ef5-b866-840490bdd04a",
@@ -135,7 +142,8 @@
       "country": "France",
       "categories": ["hair", "cosmetics"],
       "mentions": ["cruelty_free", "sustainale", "woman_owned"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1185469486
     },
     {
       "id": "d280dc6c-a605-4541-b206-7da407b95d68",
@@ -151,7 +159,8 @@
       "country": "France",
       "categories": ["decoration", "design"],
       "mentions": ["handcraft", "familly"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1211667090
     },
     {
       "id": "22c9f424-4af3-4da7-a51b-0e4f96665352",
@@ -167,7 +176,8 @@
       "country": "France",
       "categories": ["tattoos", "art"],
       "mentions": ["queer", "cruelty_free"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1258867566
     },
     {
       "id": "4dd0f29d-2617-4210-864b-a96a2430c5f3",
@@ -183,7 +193,8 @@
       "country": "France",
       "categories": ["property", "legal"],
       "mentions": ["sustainale"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1258867566
     },
     {
       "id": "842ccede-a3f5-45a5-a00f-09ca93e9f935",
@@ -199,7 +210,8 @@
       "country": "France",
       "categories": ["books", "bar_restaurant"],
       "mentions": ["handcraft", "family"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1649900276
     },
     {
       "id": "ad67617c-8489-4b94-96b5-b77752dbe3fd",
@@ -218,7 +230,8 @@
       "country": "France",
       "categories": ["design", "legal"],
       "mentions": ["sustainale"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1771466631
     },
     {
       "id": "d7c1d062-31bb-48d8-aa81-08b46c67d2e6",
@@ -234,7 +247,8 @@
       "country": "Sénégal",
       "categories": ["jewels", "art"],
       "mentions": ["handcraft", "family", "luxe"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1427532069
     },
     {
       "id": "42d45c12-e045-4a48-8a22-fd8e2dd3558f",
@@ -250,7 +264,8 @@
       "country": "France",
       "categories": ["design", "art"],
       "mentions": ["queer", "sustainale"],
-      "status": "active"
+      "status": "active",
+      "created_date": 1476096511
     }
   ]
 }
