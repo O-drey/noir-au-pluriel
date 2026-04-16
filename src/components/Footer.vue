@@ -31,9 +31,9 @@
             </li>
             <li v-if="el.value === 'contact'">
               <a
-                href="mailto:noiraupluriel@protonmail.com"
+                href="mailto:audreycarmont@protonmail.com"
                 class="normal-case font-normal text-white hover:underline"
-                >noiraupluriel@protonmail.com</a
+                >audreycarmont@protonmail.com</a
               >
             </li>
           </ul>
@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import logo from "@/assets/logo-noir-au-pluriel-2.svg"
+import logo from "@/assets/logo-noir-au-pluriel.svg"
 const footerMenu = [
   {
     value: "navigation",

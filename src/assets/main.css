@@ -20,6 +20,8 @@
 
   --vt-c-indigo: #2c3e50;
   --color-sable-50: #FBF9F6;
+  --color-sable-60: #B0630B;
+  --color-sable-70: #874316;
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -83,6 +85,8 @@ body {
 @theme {
   --font-rusty: "Rusty Hooks", sans-serif;
   --color-sable-100:  var(--color-sable-50);
+  --color-sable-600:  var(--color-sable-60);
+  --color-sable-700:  var(--color-sable-70);
 }
 
 @font-face {

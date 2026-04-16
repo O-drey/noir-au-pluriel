@@ -93,7 +93,7 @@
         <ul class="flex flex-col lg:flex-row gap-4">
           <li
             v-for="engagement in engagements"
-            class="p-4 bg-[#B0630B]/20 rounded-2xl h-fit lg:w-1/3"
+            class="p-4 bg-sable-600/20 rounded-2xl h-fit lg:w-1/3"
           >
             <span class="font-semibold mb-2">{{ engagement.title }}</span>
             <p>{{ engagement.text }}</p>
@@ -114,7 +114,7 @@
         <h2 class="text-2xl font-semibold mb-2">Rejoignez le mouvement</h2>
         <p>En soutenant les entreprises black-owned, vous contribuez à :</p>
         <ul class="flex flex-col lg:flex-row gap-4 pt-4">
-          <div v-for="step in gains" class="p-4 bg-[#B0630B]/20 rounded-2xl">
+          <div v-for="step in gains" class="p-4 bg-sable-600/20 rounded-2xl">
             <li>{{ step }}</li>
           </div>
         </ul>

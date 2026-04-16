@@ -16,7 +16,7 @@
                 name="suggestion-type"
                 id="suggestion-type"
                 v-model="newCompany.type"
-                class="text-[#B0630B] marker:stroke-1"
+                class="text-sable-600 marker:stroke-1"
               >
                 <option
                   v-for="(label, value) in COMPANIES_TYPES"
