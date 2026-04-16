@@ -36,7 +36,7 @@
         href="/"
         label="Accueil"
         color="ghost"
-        :class="{ 'bg-[#B0630B]/20': $route.path === '/' }"
+        :class="{ 'bg-sable-600/20': $route.path === '/' }"
       />
       <UIButton
         v-if="adminIsConnected"
@@ -48,7 +48,7 @@
         href="/a-propos"
         label="À propos"
         color="ghost"
-        :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
+        :class="{ 'bg-sable-600/20': $route.path === '/a-propos' }"
       />
       <UIButton href="/formulaire-suggestion" label="Compléter l'annuaire" />
     </nav>
@@ -83,7 +83,7 @@
         label="À propos"
         size="m"
         color="ghost"
-        :class="{ 'bg-[#B0630B]/20': $route.path === '/a-propos' }"
+        :class="{ 'bg-sable-600/20': $route.path === '/a-propos' }"
       />
       <UIButton
         href="/formulaire-suggestion"
@@ -96,7 +96,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue"
-import logo from "@/assets/logo-noir-au-pluriel-2.svg"
+import logo from "@/assets/logo-noir-au-pluriel.svg"
 import UIButton from "./UI/UIButton.vue"
 import { storeToRefs } from "pinia"
 import { useAdminStore } from "@/stores/useAdminStore"

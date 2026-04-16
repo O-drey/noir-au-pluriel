@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import Header from "./components/Header.vue"
 import { RouterView } from "vue-router"
 import { useCompanyStore } from "./stores/useCompanyStore"
+import Header from "./components/Header.vue"
 import Footer from "./components/Footer.vue"
+import UISvgSprites from "./components/UI/UISvgSprites.vue"
 
 const store = useCompanyStore()
 store.fetchCompanies()
@@ -11,6 +12,7 @@ store.fetchCompanies()
 <template>
   <Suspense>
     <div class="wrapper flex flex-col min-h-screen bg-sable-100">
+      <UISvgSprites />
       <Header />
       <main class="flex-1">
         <RouterView />

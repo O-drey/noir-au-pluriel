@@ -14,7 +14,7 @@
               size="m"
               color="ghost"
               :onClick="() => filter(item.value as Company['status'])"
-              :class="{ 'bg-[#B0630B]/20': activeFilter === item.value }"
+              :class="{ 'bg-sable-600/20': activeFilter === item.value }"
             />
           </li>
         </ul>
