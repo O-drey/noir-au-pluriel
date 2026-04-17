@@ -1,7 +1,7 @@
 export type MentionsKeys =
   | "woman_owned"
   | "handcraft"
-  | "sustainale"
+  | "sustainable"
   | "family"
   | "plus_size"
   | "luxe"
@@ -11,7 +11,7 @@ export type MentionsKeys =
 export const MENTIONS: Record<MentionsKeys, string> = {
   woman_owned: "Woman owned",
   handcraft: "Fait main",
-  sustainale: "Éco-responsable",
+  sustainable: "Éco-responsable",
   family: "Entreprise familiale",
   plus_size: "Grantes tailles",
   luxe: "Luxe",

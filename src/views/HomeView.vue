@@ -34,12 +34,13 @@
       </div>
     </section>
     <div class="bg-sable-100 p-4 py-8 lg:p-16 h-auto lg:pb-40">
-      <div class="flex flex-col gap-y-4 lg:flex-row items-end">
+      <!-- <UIFilterBar :companies="activeCompanies" /> -->
+      <div class="flex flex-col gap-y-4 lg:flex-row items-center">
         <div class="flex flex-col lg:flex-row lg:items-center gap-x-4">
           <span class="font-medium">Filtrer par</span>
           <UICombobox
             v-model="selectedCategories"
-            :data="menu"
+            :data="CATEGORIES"
             label="Catégories"
             multiple
             inputStyle="rounded-full lg:rounded-r-none pl-4 border border-gray-200 border-r-0"
@@ -89,8 +90,8 @@
               <option value="name-descending">
                 Ordre alphabétique inversé (Z-A)
               </option>
-              <option value="newest">Du plus récent au plus ancien</option>
-              <option value="oldest">Du plus ancien au plus récent</option>
+              <option value="newest">Date d'ajout la plus récente</option>
+              <option value="oldest">Date d'ajout la plus ancienne</option>
             </select>
           </label>
         </div>
@@ -116,25 +117,18 @@ import { ref, computed } from "vue"
 import { storeToRefs } from "pinia"
 import { useCompanyStore } from "@/stores/useCompanyStore"
 import { sortCompanies } from "@/composables/companies"
-import { menu } from "@/composables/menu"
+import { CATEGORIES, type CategoriesKeys } from "@/composables/categories"
 import { MENTIONS, type MentionsKeys } from "@/composables/mentions"
 import CompaniesList from "../components/CompaniesList.vue"
 import UIButton from "@/components/UI/UIButton.vue"
 import UICombobox from "@/components/UI/UICombobox.vue"
-import type { CategoriesKeys } from "@/composables/categories"
 import type { Option } from "@/components/UI/UICombobox.vue"
+// import UIFilterBar from "@/components/UI/UIFilterBar.vue"
 
 const store = useCompanyStore()
 const { activeCompanies } = storeToRefs(store)
 
 const activeFilter = ref<CategoriesKeys | null>(null)
-
-// const filteredCompanies = computed(() => {
-//   if (!activeFilter.value) return activeCompanies.value
-//   return activeCompanies.value.filter((company) =>
-//     company.categories.includes(activeFilter.value!),
-//   )
-// })
 
 const filteredCompanies = computed(() => {
   return activeCompanies.value.filter((company) => {
@@ -160,10 +154,6 @@ const filteredCompanies = computed(() => {
   })
 })
 
-const filter = (value: CategoriesKeys) => {
-  activeFilter.value = activeFilter.value === value ? null : value
-}
-
 const {
   sortCompaniesByNameAscending,
   sortCompaniesByNameDescending,
@@ -186,6 +176,4 @@ const companies = computed(() => {
 })
 const selectedCategories = ref<Option[]>([])
 const selectedMentions = ref<Option[]>([])
-// const mentions = Object.entries(MENTIONS)
-// console.log(mentions)
 </script>

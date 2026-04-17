@@ -16,7 +16,7 @@
       "city": "Lyon",
       "country": "France",
       "categories": ["design", "art", "workshop"],
-      "mentions": ["handcraft", "sustainale", "familly"],
+      "mentions": ["handcraft", "sustainable", "familly"],
       "status": "to-check",
       "created_date": 1644850149
     },
@@ -33,7 +33,7 @@
       "city": "Paris",
       "country": "France",
       "categories": ["fashion"],
-      "mentions": ["sustainale", "plus_size", "woman_owned"],
+      "mentions": ["sustainable", "plus_size", "woman_owned"],
       "status": "disabled",
       "created_date": 1586898332
     },
@@ -70,7 +70,7 @@
       "city": "Bordeaux",
       "country": "France",
       "categories": ["cosmetics", "perfume"],
-      "mentions": ["cruelty_free", "sustainale", "woman_owned"],
+      "mentions": ["cruelty_free", "sustainable", "woman_owned"],
       "status": "active",
       "created_date": 1744694033
     },
@@ -87,7 +87,7 @@
       "city": "Genève",
       "country": "Suisse",
       "categories": ["fashion"],
-      "mentions": ["handcraft", "sustainale", "luxe"],
+      "mentions": ["handcraft", "sustainable", "luxe"],
       "status": "active",
       "created_date": 1572885947
     },
@@ -107,7 +107,7 @@
       "city": "Lille",
       "country": "France",
       "categories": ["wellbeing", "workshop"],
-      "mentions": ["sustainale", "queer"],
+      "mentions": ["sustainable", "queer"],
       "status": "active",
       "created_date": 1552770679
     },
@@ -141,7 +141,7 @@
       "city": "Nantes",
       "country": "France",
       "categories": ["hair", "cosmetics"],
-      "mentions": ["cruelty_free", "sustainale", "woman_owned"],
+      "mentions": ["cruelty_free", "sustainable", "woman_owned"],
       "status": "active",
       "created_date": 1185469486
     },
@@ -192,7 +192,7 @@
       "city": "Paris",
       "country": "France",
       "categories": ["property", "legal"],
-      "mentions": ["sustainale"],
+      "mentions": ["sustainable"],
       "status": "active",
       "created_date": 1258867566
     },
@@ -229,7 +229,7 @@
       "city": "Brest",
       "country": "France",
       "categories": ["design", "legal"],
-      "mentions": ["sustainale"],
+      "mentions": ["sustainable"],
       "status": "active",
       "created_date": 1771466631
     },
@@ -263,7 +263,7 @@
       "city": "Montpellier",
       "country": "France",
       "categories": ["design"],
-      "mentions": ["queer", "sustainale"],
+      "mentions": ["queer", "sustainable"],
       "status": "active",
       "created_date": 1476096511
     }

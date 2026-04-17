@@ -11,18 +11,14 @@ export const sortCompanies = () => {
 
   const sortCompaniesByNewest = (companies: Company[]) =>
     companies.sort((a, b) => {
-      aDate = new Date(a.created_date).toString()
-      bDate = new Date(b.created_date).toString()
-
-      return bDate.localeCompare(aDate)
+      const result = b.created_date - a.created_date
+      return result
     })
 
   const sortCompaniesByOldest = (companies: Company[]) =>
     companies.sort((a, b) => {
-      aDate = new Date(a.created_date).toString()
-      bDate = new Date(b.created_date).toString()
-
-      return aDate.localeCompare(bDate)
+      const result = a.created_date - b.created_date
+      return result
     })
 
   return {
