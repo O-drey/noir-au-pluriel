@@ -1,5 +1,4 @@
 export type CategoriesKeys =
-  | "jewels"
   | "fashion"
   | "hair"
   | "food"
@@ -7,7 +6,6 @@ export type CategoriesKeys =
   | "beauty"
   | "decoration"
   | "wellbeing"
-  | "makeup"
   | "art"
   | "workshop"
   | "design"
@@ -16,17 +14,13 @@ export type CategoriesKeys =
   | "bar_restaurant"
   | "perfume"
   | "books"
-  | "bags"
   | "tattoos"
 
 export const CATEGORIES: Record<CategoriesKeys, string> = {
   fashion: "Mode",
-  jewels: "Bijoux",
-  bags: "Maroquinnerie",
   hair: "Cheveux",
   cosmetics: "Cosmétiques",
   perfume: "Parfum",
-  makeup: "Maquillage",
   beauty: "Beauté",
   wellbeing: "Bien-être",
   food: "Nourriture",

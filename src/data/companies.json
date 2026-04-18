@@ -16,7 +16,7 @@
       "city": "Lyon",
       "country": "France",
       "categories": ["design", "art", "workshop"],
-      "mentions": ["handcraft", "sustainale", "familly"],
+      "mentions": ["handcraft", "sustainable", "familly"],
       "status": "to-check",
       "created_date": 1644850149
     },
@@ -32,8 +32,8 @@
       "email": "hello@eclat-exemple.test",
       "city": "Paris",
       "country": "France",
-      "categories": ["fashion", "bags"],
-      "mentions": ["sustainale", "plus_size", "woman_owned"],
+      "categories": ["fashion"],
+      "mentions": ["sustainable", "plus_size", "woman_owned"],
       "status": "disabled",
       "created_date": 1586898332
     },
@@ -69,8 +69,8 @@
       "email": "info@lumiere-exemple.test",
       "city": "Bordeaux",
       "country": "France",
-      "categories": ["cosmetics", "beauty", "makeup", "perfume"],
-      "mentions": ["cruelty_free", "sustainale", "woman_owned"],
+      "categories": ["cosmetics", "perfume"],
+      "mentions": ["cruelty_free", "sustainable", "woman_owned"],
       "status": "active",
       "created_date": 1744694033
     },
@@ -86,8 +86,8 @@
       "email": "boutique@atelieror-exemple.test",
       "city": "Genève",
       "country": "Suisse",
-      "categories": ["jewels", "design"],
-      "mentions": ["handcraft", "sustainale", "luxe"],
+      "categories": ["fashion"],
+      "mentions": ["handcraft", "sustainable", "luxe"],
       "status": "active",
       "created_date": 1572885947
     },
@@ -107,7 +107,7 @@
       "city": "Lille",
       "country": "France",
       "categories": ["wellbeing", "workshop"],
-      "mentions": ["sustainale", "queer"],
+      "mentions": ["sustainable", "queer"],
       "status": "active",
       "created_date": 1552770679
     },
@@ -141,7 +141,7 @@
       "city": "Nantes",
       "country": "France",
       "categories": ["hair", "cosmetics"],
-      "mentions": ["cruelty_free", "sustainale", "woman_owned"],
+      "mentions": ["cruelty_free", "sustainable", "woman_owned"],
       "status": "active",
       "created_date": 1185469486
     },
@@ -157,7 +157,7 @@
       "email": "marc@petitatelier-exemple.test",
       "city": "Toulouse",
       "country": "France",
-      "categories": ["decoration", "design"],
+      "categories": ["decoration"],
       "mentions": ["handcraft", "familly"],
       "status": "active",
       "created_date": 1211667090
@@ -167,7 +167,7 @@
       "name": "Tatouage Libre",
       "founders": ["Julie Ndiaye"],
       "logo": "https://placehold.co/400",
-      "description": "Studio de tatouage engagé et esthétique inclusive.",
+      "description": "Studio de tatouage engagé et inclusif, spécialisé dans le design Néo-traditionel",
       "website": "https://tatouage-libre-exemple.test",
       "socials": ["https://tiktok.com/@tatouage_libre"],
       "type": "company",
@@ -192,7 +192,7 @@
       "city": "Paris",
       "country": "France",
       "categories": ["property", "legal"],
-      "mentions": ["sustainale"],
+      "mentions": ["sustainable"],
       "status": "active",
       "created_date": 1258867566
     },
@@ -229,7 +229,7 @@
       "city": "Brest",
       "country": "France",
       "categories": ["design", "legal"],
-      "mentions": ["sustainale"],
+      "mentions": ["sustainable"],
       "status": "active",
       "created_date": 1771466631
     },
@@ -245,7 +245,7 @@
       "email": "contact@bijoux-famille-exemple.test",
       "city": "Dakar",
       "country": "Sénégal",
-      "categories": ["jewels", "art"],
+      "categories": ["fashion", "art"],
       "mentions": ["handcraft", "family", "luxe"],
       "status": "active",
       "created_date": 1427532069
@@ -262,8 +262,8 @@
       "email": "hello@studio-crea-exemple.test",
       "city": "Montpellier",
       "country": "France",
-      "categories": ["design", "art"],
-      "mentions": ["queer", "sustainale"],
+      "categories": ["design"],
+      "mentions": ["queer", "sustainable"],
       "status": "active",
       "created_date": 1476096511
     }
